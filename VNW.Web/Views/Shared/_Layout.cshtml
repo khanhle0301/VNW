@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>Việc làm &amp; Tuyển dụng - Tìm việc làm mới tại VietnamWorks</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://advice.vietnamworks.com/misc/favicon.ico" />
+    <link rel="canonical" href="index.php/indexdd29.html?url=viec-lam-tai-cong-ty-tnhh-tm-dv-comptree-viet-nam-e4618348-vn" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700&amp;subset=latin,vietnamese" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/client/css/jobseekers/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/assets/client/css/jobseekers/theme.css">
+    <script type="text/javascript" src="/assets/client/js/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        jQuery.curCSS = jQuery.css;
+    </script>
+    <script type="text/javascript" src="/assets/client/js/pdfjs/modernizr.js"></script>
+</head>
+<body id="search-result-page" class="vi_VN instant-search">
+    <div data-role="page">
+        <div data-enhance="false">
+            <header>
+                @{ Html.RenderAction("Header", "Home");}
+            </header>
+            <!-- Modal Menu -->
+            <div class="modal fade modal-menu" id="modal-menu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                @{ Html.RenderAction("Menu", "Home");}
+            </div>
+            <!-- Notification Popover Content -->
+            <div class="popover hidden notification-popover" id="notification-popover" role="tooltip">
+                @{ Html.RenderAction("Notification", "Home");}
+            </div>
+            <!--/ Notification Popover Content -->
+
+            @RenderBody()
+
+            <footer>
+                @{ Html.RenderAction("Footer", "Home");}
+            </footer>
+
+            <script type="text/javascript" src="/assets/client/js/bootstrap/bootstrap.3.3.2.min.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jquery/jquery.cookie.min.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jquery/jquery.validate.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jobseekers/search/floating_jobalert_box.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jquery/jquery.simulate.min.js"></script>
+            <script type="text/javascript" src="/assets/client/js/string.js"></script>
+            <script type="text/javascript" src="/assets/client/js/cookie.min.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jobseekers/ui.plugins.min.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jobseekers/ui.vip-jobs.js"></script>
+            <script type="text/javascript" src="/assets/client/js/ui.header.min.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jquery/jquery.dotdotdot.min.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jquery/jquery.slidebar.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jquery/jquery.touchSwipe.min.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jquery/blockUI.js?version=1"></script>
+            <script type="text/javascript" src="/assets/client/js/ui_customized.js"></script>
+            <script type="text/javascript" src="/assets/client/js/validate.js"></script>
+            <script type="text/javascript" src="/assets/client/js/json2.js"></script>
+            <script type="text/javascript" src="/assets/client/js/plugins/typeahead/typeahead.bundle.min.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jobseekers/ui.job-search-suggestion.min.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jobseekers/ui.general.js"></script>
+            <script type="text/javascript" src="/assets/client/js/moment.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jquery/select2.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jquery/jquery.select2.select-all.min.js"></script>
+            <script type="text/javascript" src="/assets/client/js/moment.js"></script>
+            <script type="text/javascript" src="/assets/client/js/lodash.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jobseekers/search/browseJobManager.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jobseekers/search/instantsearch.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jobseekers/sweetalert.min.js"></script>
+            <script type="text/javascript" src="/assets/client/js/jquery/jquery.form.min.js"></script>
+            <script src="/assets/client/js/jobseekers/ui.search-results.js"></script>
+            <script type="text/javascript" src="/assets/client/www.googleadservices.com/pagead/f.txt"></script>
+            @RenderSection("footerJS", required: false)
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,662 @@
+﻿
+<div class="main-wrapper ">
+    <section class="main-content container" id="content">
+        <!-- Apply Form-->
+        <div class="modal fade apply-form-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <form class="form-horizontal" id="applyJobForm" enctype="multipart/form-data" method="post" action="https://www.vietnamworks.com/jobseekers/apply_on_oneclick.php">
+                <input type="hidden" name="jobId" id="jobId" value="811454">
+
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true" tabindex="8">×</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+
+                            <h4 class="modal-title" id="myModalLabel">
+                                Bạn đang ứng tuyển cho vị trí
+                                <strong>5 Sr. Fullstack Developers ( Javascript, PHP, Python )</strong><br>
+                                <em class="small" id="appPreferLanguage" style="display: none;">Nhà tuyển dụng ưu tiên hồ sơ ứng tuyển viết bằng tiếng <strong id="appPreferLanguageName"></strong>.</em>
+                            </h4>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="resume-header">
+                                <div class="row">
+                                    <!-- Resume Avatar -->
+                                    <div class="col-sm-3 col-xs-4 user-pic">
+                                        <div class="avatar img-circle text-center">
+                                            <div class="avatar-sample">
+                                                <i class="fa fa-3x fa-user"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-9 col-xs-8">
+                                        <!-- Full Name -->
+                                        <h4 class="m-t-md">
+                                            <span id="app-fullName"></span>
+                                        </h4>
+
+                                        <!-- Job Title -->
+                                        <div class="m-t-xs app-title">
+                                            <a href="javascript:void(0);" class="editable" data-placeholder="Nhập chức danh của bạn" tabindex="1" id="app-title" data-optional="1"></a>
+                                        </div>
+
+                                        <input type="hidden" name="appJobTitle" id="appJobTitle" value="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="resume" class="resume-body">
+                                <!-- Email Address -->
+                                <div class="form-group m-t-sm">
+                                    <label for="app-resume" class="col-sm-3 col-xs-12 control-label">Email</label>
+                                    <div class="col-sm-9 col-xs-12">
+                                        <div class="form-control-static" id="app-email"></div>
+
+                                        <div class="error-message">Để nộp đơn vui lòng kích hoạt tài khoản thông qua email của bạn.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Phone Number -->
+                                <div class="form-group m-t-sm">
+                                    <label for="app-resume" class="col-sm-3 col-xs-12 control-label">Số điện thoại</label>
+                                    <div class="col-sm-9 col-xs-12">
+                                        <div class="form-control-static phone-number">
+                                            <a id="app-phone" href="#" data-type="text" data-placeholder="Nhập số điện thoại liên lạc" data-pk="1" class="editable" value="Enter phone number" tabindex="4"></a>
+
+                                            <br>
+
+                                            <span class="error-message" style="display: none;" id="errorAppPhone">Vui lòng nhập số điện thoại.</span>
+
+                                            <input type="hidden" name="appPhoneNumber" id="appPhoneNumber" value="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Select Resume Block -->
+                                <div class="form-group awe-check select-resume">
+                                    <label for="app-resume" class="col-sm-3 col-xs-12 control-label">
+                                        Resume
+                                    </label>
+
+                                    <div class="col-sm-9 col-xs-12">
+                                        <div id="applyResume" class="m-t-xs"></div>
+
+                                        <input type="hidden" name="onlineResumeId" id="appDefaultResume" value="">
+                                        <input type="hidden" name="attachmentResume" id="attachmentResume" value="">
+
+                                        <!-- Upload New CV -->
+                                        <div class="row select-resume__item select-resume__upload-cv m-t-xs">
+                                            <div class="col-sm-12">
+                                                <div class="radio radio-success">
+                                                    <input tabindex="7" type="radio" name="resumeApply" id="optionsRadios3" value="newAttachment" data-type="new_attachment">
+
+                                                    <label for="fileAttach">
+                                                        <a class="relative">
+                                                            Chọn hồ sơ mới
+                                                            <i class="glyphicon glyphicon-upload" data-toggle="tooltip" title="Replace" data-placement="top"></i>
+                                                        </a>
+                                                    </label>
+
+                                                    <input type="file" name="resumeFile" id="fileAttach" value="Attach new" tabindex="8" class="transparent absolute">
+
+                                                    <span id="resume-filename" class="small m-l-md gray text-clip-50"></span>
+                                                </div>
+
+                                                <span class="small gray-light pull-left m-l-lg m-r-lg">Hỗ trợ định dạng .doc, .docx, .pdf, nhỏ hơn 2048KB.</span>
+                                            </div>
+                                        </div>
+
+                                        <br>
+
+                                        <span class="error-message" style="display: none;" id="errorAppResume">Vui lòng chọn hồ sơ đính kèm</span>
+                                        <span class="error-message" style="display: none;" id="errorAppResumeFile">Vui lòng chọn tập tin đính kèm với định dạng .doc, .docx, .pdf, nhỏ hơn 2048KB</span>
+
+                                    </div>
+                                </div>
+
+                                <!-- Cover Letter -->
+
+                                <span id="errorAppSystem" style="display: none;" class="error-message"></span>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <input type="hidden" name="appliedType" id="appliedType">
+
+                            <div class="pull-right">
+
+                                <button type="button" class="btn btn-defautl btn-outline" tabindex="11" data-dismiss="modal">Trở Về</button>
+
+                                <button type="button" id="applySendProcessBtn" class="btn btn-primary disabled" tabindex="11">Nộp Đơn</button>
+
+                                <button type="submit" id="applySendingProcessBtn" style="display: none;" class="btn btn-default" tabindex="10" disabled="">
+                                    <img src="/assets/client/images.vietnamworks.com/loading.gif" alt=""> Đang Nộp Đơn
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--End -->
+        <!-- Job Detail-->
+        <div id="section-job-detail" itemscope="" itemtype="http://schema.org/JobPosting">
+            <!-- Alert Messages -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success" hidden="hidden" id="alert-refer-to-friend-success">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <p class="text-lg">
+                            Công việc <strong>"5 Sr. Fullstack Developers ( Javascript, PHP, Python )"</strong> đã được giới thiệu thành công đến "<strong id="friendNameJR"></strong>"
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--Blocked User-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-danger fade hide" id="errorAlertPopup">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <p class="text-lg">
+                            <strong>Oops! </strong> Có lỗi đã xảy ra, vui lòng thử lại.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <!--/ Alert Messages -->
+            <!-- Job Header-->
+            <div class="job-header relative ">
+                <div class="box box-md">
+                    <div class="absolute-right popover-icon premium-click" data-original-title="" title=""></div>
+                    <div class="row">
+                        <div class="col1 col-md-3 employer-logo">
+                            <!-- Display when has logo-->
+                            <span class="center-block text-center box-limit">
+                                <a href="viec-lam-tai-garena-vietnam-e2904492-vn.html">
+                                    <img src="/assets/client/images.vietnamworks.com/pictureofcompany/73/10325017.png" class="logo img-responsive">
+                                </a>
+                            </span>
+                        </div>
+                        <div class="col2 col-md-9">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="job-header-info">
+                                            <h1 itemprop="title" class="job-title">
+                                                5 Sr. Fullstack Developers ( Javascript, PHP, Python )
+                                            </h1>
+                                            <span class="company-name text-lg block">
+                                                <strong>GARENA VIETNAM</strong>
+                                            </span>
+                                            <span class="company-address block">444 Hoang Hoa Tham Street | Thuy Khue Ward | Tay Ho District | HN, Vietnam</span>
+
+                                            <p class="work-location">
+                                                Nơi làm việc:
+                                                <span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><a itemprop="addressLocality" href="viec-lam-tai-ha-noi-v24-vn.html" title="Việc làm tại Hà Nội">Hà Nội</a></span><span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">, <a itemprop="addressLocality" href="viec-lam-tai-ho-chi-minh-v29-vn.html" title="Việc làm tại Hồ Chí Minh">Hồ Chí Minh</a></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Hide this in mobile-->
+                                <div class="col-md-4 hidden-xs hidden-sm">
+                                    <div class="push-top-sm"></div>
+                                    <div class="action-apply center-block">
+                                        <button type="button" onclick="applyNow()" class="btn btn-primary btn-xlg col-sm-12">
+                                            Nộp Đơn
+                                        </button>
+                                        <button class="btn btn-sm btn-google btn-block push-top-xs pull-left"><i class="fa fa-fw fa-google"></i> <span> Nộp đơn với Google</span></button>
+                                    </div>
+                                </div>
+                                <!--/-->
+                            </div>
+
+                            <!-- Salary-->
+                            <div class="row">
+                                <div class="pull-left">
+                                    <div class="salary border pull-left padding-15 box-gray-light-ex rounded text-center bold-500">
+                                        Mức lương:
+                                        <span class="link-list"><a href="dang-nhap/index938c.html?lang=1">Đăng nhập để xem mức lương</a></span>
+                                    </div>
+                                </div>
+
+                                <br class="push-top-lg visible-xs">
+                                <!--Show in Mobile-->
+                                <div class="visible-xs visible-sm push-top-lg">
+                                    <div class="action-apply center-block">
+                                        <button type="button" class="col-sm-12 btn btn-primary btn-xlg" data-toggle="modal" onclick="initApplyForm()">Nộp Đơn</button>
+                                    </div>
+                                    <button class="btn btn-sm btn-google btn-block push-top-xs"><i class="fa fa-fw fa-google"></i> <span> Nộp đơn với Google</span></button>
+                                </div>
+                                <!--/-->
+                                <div class="pull-right push-md-4 text-gray-light job-detail-date-info text-center">
+                                    <div class="pull-left small padding-15">662 lượt xem</div>
+                                    <div class="pull-left small padding-15">Đăng tuyển 7 ngày trước</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- /.Job Header -->
+            <div class="row">
+                <!-- What We Can Offer-->
+                <div class="col-xs-12 col-md-8 col-lg-8 pull-left">
+                    <div id="what-we-offer">
+                        <div class="box box-lg">
+                            <h2 class="pull-left">
+                                các phúc lợi dành cho bạn
+                            </h2>
+                            <div class="clearfix"></div>
+                            <!--Benefits-->
+                            <div class="icon-group expected-company-benefit-list push-top-xs">
+                                <div class="border-primary">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="benefit-icon"><i class="fa fa-fw fa-lg fa-dollar"></i></div>
+                                            <div class="benefit-name">13th month salary is guaranteed - Yearly allowance base on individuals’ KPIs</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="benefit-icon"><i class="fa fa-fw fa-lg fa-user-md"></i></div>
+                                            <div class="benefit-name">Health insurance package &amp; Private health insurance</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="benefit-icon"><i class="fa fa-fw fa-lg fa-coffee"></i></div>
+                                            <div class="benefit-name">Allowance: Lunch -  Flexible working hour, Company Trip</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Photo & Videos -->
+                            <div class="clearfix">
+                                <div class="multi-carousel-wrapper fade-in-on-page-loaded in">
+                                    <div class="multi-carousel" data-jcarousel="true">
+                                        <ul style="left: 0px; top: 0px;">
+                                            <li style="width: 204px;">
+                                                <a href="/assets/client/images.vietnamworks.com/company_profile/45444.jpg" rel="multi-carousel" style="height: 105px;">
+                                                    <img class="img-responsive" src="/assets/client/images.vietnamworks.com/company_profile/45444.jpg" alt="" style="margin-top: -15px;">
+                                                </a>
+                                            </li>
+                                            <li style="width: 204px;">
+                                                <a href="/assets/client/images.vietnamworks.com/company_profile/45445.jpg" rel="multi-carousel" style="height: 105px;">
+                                                    <img class="img-responsive" src="/assets/client/images.vietnamworks.com/company_profile/45445.jpg" alt="" style="margin-top: -8px;">
+                                                </a>
+                                            </li>
+                                            <li style="width: 204px;">
+                                                <a href="/assets/client/images.vietnamworks.com/company_profile/45446.jpg" rel="multi-carousel" style="height: 105px;">
+                                                    <img class="img-responsive" src="/assets/client/images.vietnamworks.com/company_profile/45446.jpg" alt="" style="margin-top: 0px;">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true"><i class="fa fa-angle-left fa-3x"></i></a>
+                                    <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"><i class="fa fa-angle-right fa-3x"></i></a>
+                                    <p class="jcarousel-pagination" data-jcarouselpagination="true"><a href="#1" class="active">1</a><a href="#2">2</a><a href="#3">3</a></p>
+                                </div>
+                                <!-- /.photos -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Job Detail-->
+                    <div id="job-detail" class="job-info">
+                        <div class="box box-lg">
+                            <h2>Bạn Nên Có Kỹ Năng</h2>
+                            <div class="push-top-sm job-tag-add-skill1">
+                                <span class="tag-xs  addable " title="Javascript">
+                                    <span class="tag-name">Javascript</span>
+                                    <label>
+                                        <i onclick="addSkillForJobseeker(this,'Javascript')" class="fa fa-plus clickable btn-add btn-add-skill-tag"></i>
+                                        <input type="checkbox" value="99" hidden="hidden">
+                                    </label>
+                                </span> <br class="visible-xs visible-sm">
+                                <span class="tag-xs  addable " title="Python">
+                                    <span class="tag-name">Python</span>
+                                    <label>
+                                        <i onclick="addSkillForJobseeker(this,'Python')" class="fa fa-plus clickable btn-add btn-add-skill-tag"></i>
+                                        <input type="checkbox" value="806" hidden="hidden">
+                                    </label>
+                                </span> <br class="visible-xs visible-sm">
+                                <span class="tag-xs  addable " title="PHP">
+                                    <span class="tag-name">PHP</span>
+                                    <label>
+                                        <i onclick="addSkillForJobseeker(this,'PHP')" class="fa fa-plus clickable btn-add btn-add-skill-tag"></i>
+                                        <input type="checkbox" value="205" hidden="hidden">
+                                    </label>
+                                </span> <br class="visible-xs visible-sm">
+                            </div>
+                        </div>
+                        <div class="box box-lg">
+                            <!-- Job Description-->
+                            <h2>Bạn Sẽ Làm Gì</h2>
+                            <div id="job-description" class="push-top-sm" itemprop="description">
+                                We are looking talents for SENIOR FULL STACK DEVELOPER for development team in Hanoi City (Floor 1, Machinco, 444 Hoang Hoa Tham, Ward Thuy Khe, Dist Tay Ho, HaNoi)<br>
+                                <br>
+                                OBJECTIVES:<br>
+                                - Develop the systems to meet high performance and extendibility<br>
+                                - Create the API to interact with other systems as well as the sub libraries
+                            </div>
+                        </div>
+                        <div class="box box-lg">
+                            <!--Job Requirement-->
+                            <h2>Chuyên Môn Của Bạn</h2>
+                            <div id="job-requirement" itemprop="experienceRequirements ">
+                                <div class="job-requirement-must-have push-top-sm">
+                                    <div class="">
+                                        WE REQUIREMENTS:<br>
+                                        - Bachelor degree in Computer Science of Engineering or and equivalent<br>
+                                        - At least 2 years of server-side programming<br>
+                                        - Full-stack development: server-side, front-end, API development and database structure<br>
+                                        - Strong experience of maintaining and developing full-stack web technologies, services<br>
+                                        - Good knowledge or experience of networking: TCP/IP, UDP/IP<br>
+                                        - Ability to work independently/ team-work and under high pressures<br>
+                                        - Advantage: Proficiency in Python/ PHP/ Java<br>
+                                        - Proficiency in English is must<br>
+                                        <br>
+                                        WE OFFER:<br>
+                                        - A very attractive salary package.<br>
+                                        - Open and dynamic working environment<br>
+                                        - Attractive income with year bonus.<br>
+                                        - Extra healthy activities and healthcare program.<br>
+                                        - Chance to work on-site in Singapore
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Company Info-->
+                    <div class="company-info" itemprop="hiringOrganization" itemscope="" itemtype="http://schema.org/Organization">
+                        <div class="box box-lg">
+                            <h2>
+                                Về Công Ty Chúng Tôi
+                            </h2>
+                            <div class="company-info">
+                                <span itemprop="name" class="link-list company-name text-lg push-top-xs block">
+                                    <strong><a href="viec-lam-tai-garena-vietnam-e2904492-vn.html">GARENA VIETNAM</a></strong>
+                                </span>
+                                <span class="company-address block">444 Hoang Hoa Tham Street | Thuy Khue Ward | Tay Ho District | HN, Vietnam</span>
+                                <p>
+                                    Tên người liên hệ: <strong>HR Department</strong><br>
+                                    Qui mô công ty: <strong>1.000-4.999</strong>
+                                </p>
+                                <p>
+                                    <span id="companyprofile">
+                                        GARENA VIETNAM<br>
+                                        "Connect The Dots To Connect The World"<br>
+                                        <br>
+                                        "Aim to change people's lives by providing great experiments with Internet based services". <br>
+                                        This mission leads us to be the pioneer in e-sports and one of few technology companies providing e-payment &amp; e-commerce platforms. Some key factors about us:<br>
+                                        <br>
+                                        - One of fastest-growing technology companies in Vietnam.<br>
+                                        - 1,000+ employees over 6 years of growing.<br>
+                                        - 50 points of Customer Service nationwide besides.
+                                    </span>
+                                </p>
+                                <p class="push-top">
+                                    <a href="viec-lam-tai-garena-vietnam-e2904492-vn.html"><i class="fa fa-arrow-right"></i> Việc làm khác từ Công ty này</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Company Info-->
+                </div>
+                <!--Actions-->
+                <div class="col-xs-12 col-md-4 col-lg-4 pull-right">
+                    <!-- Summary Box -->
+                    <div class="box">
+                        <div class="padding-15 push-top-sm">
+                            <h4>
+                                bạn có muốn
+                            </h4>
+                        </div>
+                        <div class="list-group clearfix link-list push-top-sm">
+                            <div class="list-group-item fontawesome-icon-list">
+                                <div class="item-icon">
+                                    <span class="fa-stack fa-1x">
+                                        <i class="fa fa-circle fa-stack-2x fa-gray"></i> <i class="fa fa-envelope fa-stack-1x"></i>
+                                    </span>
+                                </div>
+                                <div class="item-content">
+                                    <p>
+                                        <a href="quan-ly-nghe-nghiep/thong-bao-viec-lam/indexbd41.html?fromjob=true&amp;jobid=811454" onclick="return createSimiliarJobAlert();" alt="Gửi email việc làm tương tự">Gửi email việc làm tương tự</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="list-group-item fontawesome-icon-list">
+                                <div class="item-icon">
+                                    <span class="fa-stack fa-1x">
+                                        <i class="fa fa-circle fa-stack-2x fa-gray"></i> <i class="fa fa-mail-forward fa-stack-1x"></i>
+                                    </span>
+                                </div>
+                                <div class="item-content">
+                                    <p>
+                                        <a href="dang-nhap/index5c36.html?lang=1">Giới thiệu bạn bè</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="list-group-item fontawesome-icon-list">
+                                <div class="item-icon last">
+                                    <span class="fa-stack fa-1x">
+                                        <i class="fa fa-circle fa-stack-2x fa-gray"></i> <i class="fa fa-share-alt fa-stack-1x"></i>
+                                    </span>
+                                </div>
+                                <div class="item-content last">
+                                    <p>
+                                        <span class="link-gray-light">
+                                            Chia sẻ
+                                            <a title="Chia sẻ qua Facebook" href="http://www.facebook.com/sharer.php?u=https://www.vietnamworks.com/5-sr-fullstack-developers-javascript-php-python-811454-jv/&amp;utm_source=Facebook&amp;utm_medium=ShareButton&amp;utm_campaign=SocialNetwork&amp;t=VietnamWorks%20-%20GARENA%20VIETNAM%20-%205%20Sr.%20Fullstack%20Developers%20(%20Javascript,%20PHP,%20Python%20)"><i class="fa fa-lg fa-facebook-square"></i></a>
+                                            <a target="_blank" title="Chia sẻ qua LinkedIn" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.vietnamworks.com/viec-lam/chi-tiet/5-sr-fullstack-developers-javascript-php-python-811454&amp;utm_source=LinkedIn&amp;utm_medium=ShareButton&amp;utm_campaign=SocialNetwork&amp;title=VietnamWorks%20-%20GARENA%20VIETNAM%20-%205%20Sr.%20Fullstack%20Developers%20(%20Javascript,%20PHP,%20Python%20)&amp;summary=We+are+looking+talents+for+SENIOR+FULL+STACK+DEVELOPER+for+development+team+in+Hanoi+City+%28Floor+1%2C+Machinco%2C+444+Hoang+Hoa+Tham%2C+Ward+Thuy+Khe%2C+Dist+Tay+Ho%2C+HaNoi%29%0D%0A%0D%0AOBJECTIVES%3A%0D%0A-+Develop+the+systems+to+meet+high+performance+and+extendibility%0D%0A-+Create+the+API+to+interact+with+other+systems+as+well+as+the+sub+libraries"><i class="fa fa-lg fa-linkedin-square"></i></a>
+                                            <a target="_blank" title="Chia sẻ qua Twitter" href="http://twitter.com/home?status=VietnamWorks%20-%20GARENA%20VIETNAM%20-...:+https://www.vietnamworks.com/viec-lam/chi-tiet/5-sr-fullstack-developers-javascript-php-python-811454"><i class="fa fa-lg fa-twitter-square"></i></a>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Summary Box -->
+                </div>
+
+                <!-- Other Job Details-->
+                <div class="col-xs-12 col-md-4 col-lg-4 pull-right">
+                    <div class="box box-md">
+                        <div class="link-list">
+                            <h4>Tổng Quan Công Việc</h4>
+
+                            <div class="push-top-xs"></div>
+                            <div class="list-group">
+                                <h5>Cấp Bậc</h5>
+                                <a href="nhan-vien-l5-vn.html" title="Nhân viên jobs">Nhân viên</a>
+                            </div>
+
+                            <div class="list-group push-top-xs">
+                                <h5>Ngành Nghề</h5>
+                                <a href="it-phan-cung-mang-jobs-i55-vn.html" title="Jobs in IT-Phần cứng/Mạng">IT-Phần cứng/Mạng</a><br><a href="internet-online-media-jobs-i57-vn.html" title="Jobs in Internet/Online Media">Internet/Online Media</a><br><a href="it-phan-mem-jobs-i35-vn.html" title="Jobs in IT - Phần mềm">IT - Phần mềm</a><br>
+                            </div>
+
+                            <div class="list-group push-top-xs">
+                                <h5>Ngôn Ngữ Trình Bày Hồ Sơ</h5>
+
+                                <p>Bất kỳ</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Summary Box -->
+                </div>
+                <!-- Similar Jobs-->
+                <div class="col-xs-12 col-md-4 col-lg-4 pull-right" id="vnw_similar_jobs">
+                    <div class="box box-md">
+                        <div class="list-group">
+                            <h4>Công việc tương tự</h4>
+
+                            <div class="push-top-xs"></div>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a data-item-url="full-stack-developers-javascript-php-805020-jv/indexdfb3.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=PeopleAlsoView&amp;utm_content=vietnamworks" data-item-id="805020" class="text-dot vnw_item_link clickable" style="word-wrap: break-word;" title="Full-stack Developers ( Javascript/ PHP)">Full-stack Developers ( Javascript/ PHP)</a>
+                                    <br>
+                                    <span class="gray-light">CÔNG TY Cổ Phần CÔNG Nghệ Và Ứng Dụng Dsv</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a data-item-url="web-developers-javascript-nodejs-php-attractive-salary-2-1-1-809397-jv/indexdfb3.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=PeopleAlsoView&amp;utm_content=vietnamworks" data-item-id="809397" class="text-dot vnw_item_link clickable" style="word-wrap: break-word;" title="Web Developers ( Javascript, Nodejs, PHP) | Attractive Salary">Web Developers ( Javascript, Nodejs, PHP) |... </a>
+                                    <br>
+                                    <span class="gray-light">Bluecom Solutions Limited</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a data-item-url="php-developers-sl-5-luong-len-den-18-trieu-808401-jv/indexdfb3.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=PeopleAlsoView&amp;utm_content=vietnamworks" data-item-id="808401" class="text-dot vnw_item_link clickable" style="word-wrap: break-word;" title="PHP Developers (SL: 5, Lương Lên Đến 18 Triệu)">PHP Developers (SL: 5, Lương Lên Đến 18 Triệu)</a>
+                                    <br>
+                                    <span class="gray-light">Secomm Co. Ltd.</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a data-item-url="6-python-developers-1-1-802833-jv/indexdfb3.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=PeopleAlsoView&amp;utm_content=vietnamworks" data-item-id="802833" class="text-dot vnw_item_link clickable" style="word-wrap: break-word;" title="6 Python Developers">6 Python Developers</a>
+                                    <br>
+                                    <span class="gray-light">HDWebsoft Co., Ltd</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a data-item-url="3-web-developers-python-django-angular-php-804277-jv/indexdfb3.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=PeopleAlsoView&amp;utm_content=vietnamworks" data-item-id="804277" class="text-dot vnw_item_link clickable" style="word-wrap: break-word;" title="3 Web Developers (python/django/angular/php)">3 Web Developers (python/django/angular/php)</a>
+                                    <br>
+                                    <span class="gray-light">ASCEND Group ( ASCEND Technology)</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a data-item-url="urgent-5-fullstack-net-developer-1-812085-jv/indexdfb3.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=PeopleAlsoView&amp;utm_content=vietnamworks" data-item-id="812085" class="text-dot vnw_item_link clickable" style="word-wrap: break-word;" title="Urgent: 5 Fullstack .NET Developer">Urgent: 5 Fullstack .NET Developer</a>
+                                    <br>
+                                    <span class="gray-light">Navigos Search’s Client</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a data-item-url="php-developers-17-803204-jv/indexdfb3.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=PeopleAlsoView&amp;utm_content=vietnamworks" data-item-id="803204" class="text-dot vnw_item_link clickable" style="word-wrap: break-word;" title="PHP Developers">PHP Developers</a>
+                                    <br>
+                                    <span class="gray-light">Công Ty TNHH Techbase Việt Nam</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a data-item-url="tuyen-10-full-stack-developers-td1703035-1-1-811691-jv/indexdfb3.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=PeopleAlsoView&amp;utm_content=vietnamworks" data-item-id="811691" class="text-dot vnw_item_link clickable" style="word-wrap: break-word;" title="Tuyển 10 Full-stack Developers (td1703035)">Tuyển 10 Full-stack Developers (td1703035)</a>
+                                    <br>
+                                    <span class="gray-light">Tổ Hợp Công Nghệ Giáo Dục Topica</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a data-item-url="full-stack-developer-7-years-experience-html5-node-js-css3-angular-php-javascript-angular-809289-jv/indexdfb3.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=PeopleAlsoView&amp;utm_content=vietnamworks" data-item-id="809289" class="text-dot vnw_item_link clickable" style="word-wrap: break-word;" title="Full Stack Developer – 7+ Years Experience – Html5, Node Js, Css3, Angular, PHP, Javascript, Angular">Full Stack Developer – 7+ Years Experience –... </a>
+                                    <br>
+                                    <span class="gray-light">Blue Sword</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <a data-item-url="senior-medior-web-developer-php-html-javascript-magento-1-810522-jv/indexdfb3.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=PeopleAlsoView&amp;utm_content=vietnamworks" data-item-id="810522" class="text-dot vnw_item_link clickable" style="word-wrap: break-word;" title="Senior/medior Web Developer PHP / HTML / Javascript Magento">Senior/medior Web Developer PHP / HTML /... </a>
+                                    <br>
+                                    <span class="gray-light">VE Source</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Similar Box -->
+
+                <div class="col-xs-12 col-md-4 col-lg-4 pull-right" id="grv_similar_jobs" hidden="hidden">
+                    <div class="box box-md">
+                        <div class="list-group">
+                            <h4>Công việc tương tự</h4>
+                            <div class="push-top-xs"></div>
+                            <ul class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Jobs from Similar Company-->
+                <div class="col-xs-12 col-md-4 col-lg-4 pull-right">
+                    <div class="box box-md">
+                        <div class="">
+                            <h4>Công Ty Tương Tự</h4>
+                            <!--<h4>Similar Companies</h4>-->
+                            <ul class="list-group">
+                                <!--
+                                    <li class="list-group-item">
+                                        <a href="https://www.vietnamworks.com/ui-ux-designer-senior-level-1-566866-jd/?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=PeopleAlsoView" class="text-dot" title="UI/UX Designer (Senior Level)" style="word-wrap: break-word;">FTP Software</a>
+                                    </li>
+                                -->
+                                <li class="list-group-item">
+                                    <a href="full-stack-developers-javascript-php-805020-jv/indexd103.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=SimilarCompanies" class="text-dot" style="word-wrap: break-word;" title="CÔNG TY Cổ Phần CÔNG Nghệ Và Ứng Dụng Dsv">CÔNG TY Cổ Phần CÔNG Nghệ Và Ứng Dụng... </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="web-developers-javascript-nodejs-php-attractive-salary-2-1-1-809397-jv/indexd103.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=SimilarCompanies" class="text-dot" style="word-wrap: break-word;" title="Bluecom Solutions Limited">Bluecom Solutions Limited</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="php-developers-sl-5-luong-len-den-18-trieu-808401-jv/indexd103.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=SimilarCompanies" class="text-dot" style="word-wrap: break-word;" title="Secomm Co. Ltd.">Secomm Co. Ltd.</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="6-python-developers-1-1-802833-jv/indexd103.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=SimilarCompanies" class="text-dot" style="word-wrap: break-word;" title="HDWebsoft Co., Ltd">HDWebsoft Co., Ltd</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="3-web-developers-python-django-angular-php-804277-jv/indexd103.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=SimilarCompanies" class="text-dot" style="word-wrap: break-word;" title="ASCEND Group ( ASCEND Technology)">ASCEND Group ( ASCEND Technology)</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="urgent-5-fullstack-net-developer-1-812085-jv/indexd103.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=SimilarCompanies" class="text-dot" style="word-wrap: break-word;" title="Navigos Search’s Client">Navigos Search’s Client</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="php-developers-17-803204-jv/indexd103.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=SimilarCompanies" class="text-dot" style="word-wrap: break-word;" title="Công Ty TNHH Techbase Việt Nam">Công Ty TNHH Techbase Việt Nam</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="tuyen-10-full-stack-developers-td1703035-1-1-811691-jv/indexd103.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=SimilarCompanies" class="text-dot" style="word-wrap: break-word;" title="Tổ Hợp Công Nghệ Giáo Dục Topica">Tổ Hợp Công Nghệ Giáo Dục Topica</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="full-stack-developer-7-years-experience-html5-node-js-css3-angular-php-javascript-angular-809289-jv/indexd103.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=SimilarCompanies" class="text-dot" style="word-wrap: break-word;" title="Blue Sword">Blue Sword</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="senior-medior-web-developer-php-html-javascript-magento-1-810522-jv/indexd103.html?utm_source=jobalertemail&amp;utm_medium=JobDescription&amp;utm_campaign=SimilarCompanies" class="text-dot" style="word-wrap: break-word;" title="VE Source">VE Source</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Similar Company-->
+                <!-- Course Info-->
+
+                <div class="col-xs-12 col-md-4 col-lg-4 pull-right">
+                    <div class="box box-md" id="courseInfo">
+                        <div class="courseDetail">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="text-center">
+                                        <img class="m-b-sm" width="250" src="/assets/client/images.vietnamworks.com/logo/ieru1IQha.gif" alt="ĐH Lunghwa Tuyển Sinh Thạc Sỹ Quản Lý Thông Tin">
+                                    </div>
+                                    <h3>ĐH Lunghwa Tuyển Sinh Thạc Sỹ Quản Lý Thông Tin</h3>
+                                    <div class="push-top-sm">
+                                        <p><i class="fa fa-check text-success"></i> Bằng cấp quốc tế.</p>
+                                        <p><i class="fa fa-check text-success"></i> Không cần thi tuyển đầu vào.</p>
+                                        <p><i class="fa fa-check text-success"></i> Học phí toàn khóa học chỉ có 135 triệu.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 text-center push-top-xs">
+                                    <button class="btn btn-sm btn-success" id="btnFindOut">Đăng ký ngay!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Messsage-->
+                    <div class="alert alert-success" id="cmb-success-message" hidden="hidden"><strong>Cám ơn bạn. Chúng tôi sẽ liên lạc với bạn sớm.</strong></div>
+                    <div class="alert error-message" id="cmb-error-message" hidden="hidden"><strong>Oops! </strong> Có lỗi đã xảy ra, vui lòng thử lại.</div>
+                </div>
+                <!--/ Course Info-->
+            </div>
+        </div>
+        <!--End Job Detail -->
+        <div class="float-table-wrapper">
+            <div class="link-list pull-right go-top" style="display: none;">
+                <span class="fa-stack fa-lg">
+                    <a href="#top">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/LayoutAccount.cshtml";
+}
+
+<div id="vnw-sign-up" class="container main-content vnw-sign-up">
+    <div class="col-sm-8 col-sm-push-2">
+        <div class="row">
+            <div class="col-sm-8 col-sm-push-2">
+                <div class="box box-md box-compact center-block">
+                    <h1 class="text-center">Đăng ký thành viên</h1>
+                    <div class="social-bar text-center">
+                        <button class="btn btn-md btn-facebook push-top-xs"
+                                onclick="location.href ='https://www.facebook.com/v2.3/dialog/oauth?client_id=119551694602&amp;redirect_uri=https%3A%2F%2Fwww.vietnamworks.com%2Fjobseekers%2Fopen_authenticate.php%3FaccountType%3Dfacebook&amp;state=81fed9c377bca645504de2f8c4ac683c&amp;sdk=php-sdk-4.0.23&amp;scope=email%2Cuser_birthday%2Cuser_location'">
+                            <i class="fa fa-fw fa-facebook"></i>
+                            <span>Dùng tài khoản Facebook</span>
+                        </button>
+                        <button class="btn btn-md btn-google push-top-xs" onclick="location.href = 'https://accounts.google.com/o/oauth2/auth?response_type=code&amp;redirect_uri=https%3A%2F%2Fwww.vietnamworks.com%2Fjobseekers%2Fopen_authenticate_google.php&amp;client_id=528520998924-5ho222d6sabbosb54f63alg93sonf5d7.apps.googleusercontent.com&amp;scope=profile+email&amp;access_type=online&amp;approval_prompt=auto'">
+                            <i class="fa fa-fw fa-google"></i>
+                            <span>Dùng tài khoản Google</span>
+                        </button>
+                    </div>
+                    <!-- Begin Content-->
+                    <form name="frm" id="frmSignUp" method="post" class="form-horizontal">
+                        <fieldset class="push-top-xs">
+                            <hr />
+                            <p class="text-center m-b-none vnw-sign-up__use-email">Đăng ký bằng email</p>
+                            <br />
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="txtLastname" id="txtLastname" value=""
+                                           placeholder="Họ" tabindex="1" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="txtFirstname" id="txtFirstname" value=""
+                                           placeholder="Tên" tabindex="2" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="email" class="form-control" name="txtEmail" id="txtEmail" value=""
+                                           placeholder="Email" tabindex="3" />
+                                    <input type="hidden" name="chkEmail" value="0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="password" class="form-control" name="txtPassword" id="txtPassword"
+                                           maxlength="255"
+                                           value=""
+                                           placeholder="Mật khẩu" tabindex="4" />
+                                </div>
+                            </div>
+                            <input type="hidden" id="form_csrf_token" name="csrf_token" value="k8NrmGVumJmXaWaWaZVycJOaZ2ximW2Xa8OeY53Da5Jom8huksuYZrVqZZyYmG1qaJea">
+                            <div class="form-group awe-check">
+                                <div class="col-md-12">
+                                    <div class="checkbox">
+                                        <input name="chkIsNewLetter" id="chkIsNewLetter" type="checkbox" value="1" checked="checked" tabindex="5" />
+                                        <label for="chkIsNewLetter">Tôi muốn nhận Bản tin VietnamWorks <br class="hidden-xs" /> hàng tuần và hàng tháng</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Buttons-->
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <button type="submit" name="Submit" value="I agree" class="btn btn-primary btn-block"
+                                            tabindex="6">
+                                        <span>Đăng ký</span>
+                                    </button>
+                                    <span class="processing" style="display: none; height:30px;"></span>
+                                </div>
+                            </div>
+                            <!--<div class="form-group">
+                                <div class="col-md-12">
+                                    <span>Nhấp chọn "Đăng ký", tôi đã đọc và đồng ý với các
+                                        <strong><a href="quy-dinh-bao-mat" title="Qui định bảo mật">Quy định bảo mật</a></strong>
+                                        và
+                                        <strong><a href="thoa-thuan-su-dung" title="Thỏa thuận sử dụng">Thỏa thuận sử dụng</a></strong>
+                                    </span>
+                                </div>
+                            </div>
+                            <hr/>-->
+                            <div class="form-group vnw-sign-up__terms">
+                                <div class="col-md-12 text-center">
+                                    <span class="gray-light small link-list">
+                                        Nhấp chọn "Đăng ký", tôi đã đọc và đồng ý với các <br />
+                                        <a href="quy-dinh-bao-mat.html" title="Qui định bảo mật">
+                                            Quy định bảo mật
+                                        </a>
+                                        và
+                                        <a href="thoa-thuan-su-dung.html" title="Thỏa thuận sử dụng">
+                                            Thỏa thuận sử
+                                            dụng
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                            <hr />
+                            <p class="text-center">
+                                Bạn là thành viên VietnamWorks?
+                                <a href="dang-nhap.html">
+                                    <strong>Đăng nhập</strong>
+                                </a>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

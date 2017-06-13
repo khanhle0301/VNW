@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/LayoutAccount.cshtml";
+}
+
+<div id="vnw-log-in" class="container main-content">
+    <div class="col-sm-8 col-sm-push-2">
+        <div class="box box-lg">
+            <div class="alert alert-danger" id="err_top" style="display: none"><strong class="sprite_icon errorIcon"> Sorry, there are errors with the information you provided. Please scroll down to check for errors.</strong></div>
+
+            <h1 class="text-center">Đăng Nhập</h1>
+            <div class="text-center push-top-xs">Đăng nhập hoặc đăng ký thành viên nhanh bằng tài khoản</div>
+            <div class="social-bar text-center">
+                <button class="btn btn-md btn-facebook push-top-xs" onclick="location.href = 'https://www.facebook.com/v2.3/dialog/oauth?client_id=119551694602&amp;redirect_uri=https%3A%2F%2Fwww.vietnamworks.com%2Fjobseekers%2Fopen_authenticate.php%3FaccountType%3Dfacebook&amp;state=56c799a4decbf3003353278b09a3e93b&amp;sdk=php-sdk-4.0.23&amp;scope=email%2Cuser_birthday%2Cuser_location'">
+                    <i class="fa fa-fw fa-facebook"></i> <span> Facebook</span>
+                </button>
+                <button class="btn btn-md btn-google push-top-xs" onclick="location.href = 'https://accounts.google.com/o/oauth2/auth?response_type=code&amp;redirect_uri=https%3A%2F%2Fwww.vietnamworks.com%2Fjobseekers%2Fopen_authenticate_google.php&amp;client_id=528520998924-5ho222d6sabbosb54f63alg93sonf5d7.apps.googleusercontent.com&amp;scope=profile+email&amp;access_type=online&amp;approval_prompt=auto'">
+                    <i class="fa fa-fw fa-google"></i> <span> Google</span>
+                </button>
+            </div>
+            <!-- Begin Content-->
+
+            <form name="frm" id="frmSignUp" method="post" class="form-horizontal">
+
+                <fieldset class="push-top-xs">
+                    <hr>
+                    <p class="text-center">Đăng nhập bằng tài khoản VietnamWorks</p><br>
+
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-2">
+                            <input type="text" id="form_username" name="form[username]" required="required" placeholder="Nhập địa chỉ email của bạn" tabindex="1" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-2">
+                            <input type="password" id="form_password" name="form[password]" required="required" placeholder="Nhập mật khẩu" tabindex="2" class="form-control">
+                            <span class="pull-right push-top-xs small"><a href="quen-mat-khau/index.html">Quên mật khẩu?</a></span>
+                        </div>
+                    </div>
+                    <!-- Buttons-->
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-8">
+                            <button type="submit" id="form_sign_in" name="form[sign_in]" tabindex="3" class="btn btn-primary btn-block">Đăng Nhập</button>
+                        </div>
+                    </div>
+                    <input type="hidden" id="form_csrf_token" name="csrf_token" value="k8NrmGVumJmXaWaWaZVycJOaZ2ximW2Xa8OeY53Da5Jom8huksuYZrVqZZyYmG1qaJea">
+
+                    <hr>
+                    <p class="text-center">
+                        Bạn chưa có tài khoản?
+                        <a class="register" href="dang-ky/index.html">Đăng kí ngay!</a>
+                    </p>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>

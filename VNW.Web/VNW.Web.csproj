@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ACBCB85F-C917-42E4-B489-ED1D7432D9DF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VNW.Web</RootNamespace>
+    <AssemblyName>VNW.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Assets\client\css\compiled\" />
+    <Folder Include="Assets\client\css\js\jquery\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\ViecLamController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\client\apis.google.com\js\plusone.js" />
+    <Content Include="Assets\client\css\font-awesome.css" />
+    <Content Include="Assets\client\css\fonts\fontawesome-webfont5b62.svg" />
+    <Content Include="Assets\client\css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\client\css\jobseekers\bootstrap.css" />
+    <Content Include="Assets\client\css\jobseekers\bootstrap9b11.css" />
+    <Content Include="Assets\client\css\jobseekers\company-list.css" />
+    <Content Include="Assets\client\css\jobseekers\slick-carousel\slick-theme.css" />
+    <Content Include="Assets\client\css\jobseekers\slick-carousel\slick.css" />
+    <Content Include="Assets\client\css\jobseekers\theme.css" />
+    <Content Include="Assets\client\css\jobseekers\theme9b11.css" />
+    <Content Include="Assets\client\css\jobseekers\themeab2a.css" />
+    <Content Include="Assets\client\css\jobseekers\theme_fix9b11.css" />
+    <Content Include="Assets\client\css\js\js_layout_fix9b11.css" />
+    <Content Include="Assets\client\images.vietnamworks.com\bg_featured_logo.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\btxt_fe_vn.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\btxt_forget_password.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\btxt_forget_password_vn.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\bullet_error.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\21986.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\21989.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\28607.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\31596.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\32863.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\32864.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\33051.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\33052.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\33053.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\33452.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\33453.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\33454.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\33732.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\33733.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\33734.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\35461.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\35464.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\35465.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\35954.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\35955.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\35956.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\38079.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\39439.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\39440.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\39441.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\39713.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\39714.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\39715.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\39897.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\39898.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\39899.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\40053.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\40054.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\40055.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\40428.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\41064.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\41416.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\41417.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\41620.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\41621.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\41772.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\42237.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\42240.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\42241.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\42945.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\43150.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\43151.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\43152.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\43186.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\44478.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\44479.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\44503.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\44504.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\44505.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\44565.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\44792.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\45157.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\45158.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\45159.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\45444.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\45445.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\45446.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\45477.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\8284.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\8286.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\8287.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\app-store-badge-vi.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\app-store-badge.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\appstore_en.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\appstore_vi.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\bg-input-text.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\bg-question-flag.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\bg-subscribe-popup-vi.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\bg-subscribe-popup.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\bkg_boxHeader03.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\bkg_boxHeaderRight03.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\bkg_JS_boxFooter01.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\bkg_JS_boxFooterRight01.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\box_bg.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\btn-dang-ky-ngay.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\btn-sprite-socialnetwork.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\btn-subscribe.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\bullet-check.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\company_profile_row.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\form_bg_subheader.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\form_button.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\google-play-badge-vi.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\google-play-badge.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\googleplay_en.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\googleplay_vi.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\ico-close-dark.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\icon-check.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\icon-good.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\icon-sprite-socialnetwork.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\icons_sprites.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\login-photo.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\mar-popup-bg.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\MobilePU_engver.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\MobilePU_vietver.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\note-bg.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\note-body-bg.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\page404_thanhmai.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\pic_resume.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\slider-shadow-vertical.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\splash_jobalert_en.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\splash_jobalert_vn.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\splash_newsletter_en.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\splash_newsletter_mng_en.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\splash_newsletter_mng_vn.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\splash_newsletter_vn.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\splash_resumepost_en.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\splash_resumepost_vn.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\sprite-form.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\sprite.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\sprite_form_button.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\sprite_icons.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\sprite_icons_js.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\sprite_panel_header_js.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\subscribe_landing_bg_en.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\subscribe_landing_bg_vi.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\triangle-bullet.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\txt-dang-ky-ban-tin.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\txt-why-subscribe.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\gen\whyvnw_icons.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\icon-processing.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\3e-test-background.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\badSmile3860.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\employers\badge-promotion.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\employers\sprite-icon.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\fancybox\blank.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\fancybox\fancybox_loading.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\fancybox\fancybox_overlay.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\fancybox\fancybox_sprite.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\goodSmile3860.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\icon-edit-s-hover.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\icon-email.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\icon-tag.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobalert-bg.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\bg_search.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\chosen-sprite.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\chosen-tag.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\home-sprite.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\ico-googleplay.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\ico-itune.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\ico-menu.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\icon-facebook.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\icon-google.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\logo.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\logo_appstore.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\logo_googleplay.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\salary_review_bg.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\scrollbar.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jobseekers\select2.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jquery-ui-icons_222222_256x240.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jquery-ui-icons_228ef1_256x240.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jquery-ui-icons_ef8c08_256x240.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jquery-ui-icons_ffd27a_256x240.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\jquery-ui-icons_ffffff_256x240.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\light-close-button3860.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\matchingscore-s.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\neutralSmile3860.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\playvideo.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\premium-job-ribbon-vi.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\premium-job-ribbon.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\recommended-job-icon.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\responsive-resume-icon.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\sprite.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\tag-bg.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\tag-light-bg.html" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-application-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-careercenter-resume-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-contactus-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-createaccount-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-jobpack-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-jobpackextra-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-jobpost-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-postjob-application-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-postjob-company-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-postjob-jobinfo-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-postjob-nav-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-resume-detail-full-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-resume-detail-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-resumealert-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-resumesearch-advanced-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-resumesearch-result-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-employer-resumesearch-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-jobalert-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-jobalertnew-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-jobdetail-sidebar-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-jobdetail-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-register-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-resume-careerobjective-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-resume-create-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-resume-referrence-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-resume-summary-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-resume-workingexperience-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\terms-sendmejob-vn.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\vnw_logo.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\img\vnw_logo3860.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\js\home_box.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\js\home_search_bg.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\loading.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\logo\ieru1IQha.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\marketing_promo_js\expand_banner.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\06\10320668.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\08\10179767.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\0d\8213230.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\12\9400715.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\15\10094851.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\16\10352846.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\1e\10352728.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\1f\10201894.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\29\977948.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\2d\7174117.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\31\534819.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\33\10338306.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\36\1343121.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\3a\10337343.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\3b\10304843.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\49\10197315.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\57\10317923.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\57\10358847.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\62\10235828.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\62\10301868.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\6a\10342575.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\72\10098561.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\72\10244550.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\73\10241948.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\73\10325017.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\74\9181424.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\79\10294548.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\81\10324198.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\81\379678.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\84\10220181.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\85\10182727.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\86\10345882.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\8b\7154167.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\8d\10358859.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\9a\10249348.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\a1\10295017.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\a9\10158619.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\ab\8358019.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\ae\10351859.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\b3\7620081.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\b4\10298319.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\b8\10111186.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\be\3003969.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\c2\10129674.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\c4\10103931.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\cb\10351315.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\ce\6206716.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\d3\10127221.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\d4\66198.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\df\10202612.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\df\10305086.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\df\3212585.jpg" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\e0\10104640.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\e3\7787405.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\e5\10330673.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\e7\10346696.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\ee\10340128.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\ee\10361124.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\fd\10337042.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\fe\10241225.png" />
+    <Content Include="Assets\client\images.vietnamworks.com\rc_home\bkg_bodyNormal.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\rc_home\bkg_headerLang.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\rc_home\bkg_toJobSeeker.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\rc_home\vnwemp_mainnav_over.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\tn_bg_title_left.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\tn_bg_title_right.gif" />
+    <Content Include="Assets\client\images.vietnamworks.com\vnw_logo.gif" />
+    <Content Include="Assets\client\js\bootstrap\bootstrap-3.2.0\popover.js" />
+    <Content Include="Assets\client\js\bootstrap\bootstrap-3.2.0\tooltip.js" />
+    <Content Include="Assets\client\js\bootstrap\bootstrap.3.0.1.min.js" />
+    <Content Include="Assets\client\js\bootstrap\bootstrap.3.2.0.min.js" />
+    <Content Include="Assets\client\js\bootstrap\bootstrap.3.3.2.min.js" />
+    <Content Include="Assets\client\js\bootstrap\bootstrap.min.js" />
+    <Content Include="Assets\client\js\bundle\home\plugins.js" />
+    <Content Include="Assets\client\js\bundle\home\ui.js" />
+    <Content Include="Assets\client\js\compiled\p_commonadf0.js" />
+    <Content Include="Assets\client\js\cookie.min.js" />
+    <Content Include="Assets\client\js\jobseekers\company-list\bundle.js" />
+    <Content Include="Assets\client\js\jobseekers\jquery.validate.js" />
+    <Content Include="Assets\client\js\jobseekers\onesignal-integration9b11.js" />
+    <Content Include="Assets\client\js\jobseekers\search\browseJobManager.js" />
+    <Content Include="Assets\client\js\jobseekers\search\bundle.js" />
+    <Content Include="Assets\client\js\jobseekers\search\floating_jobalert_box.js" />
+    <Content Include="Assets\client\js\jobseekers\search\instantsearch.js" />
+    <Content Include="Assets\client\js\jobseekers\sweetalert.min.js" />
+    <Content Include="Assets\client\js\jobseekers\ui.footer.min.js" />
+    <Content Include="Assets\client\js\jobseekers\ui.general.js" />
+    <Content Include="Assets\client\js\jobseekers\ui.job-detail9b11.js" />
+    <Content Include="Assets\client\js\jobseekers\ui.job-search-suggestion.min.js" />
+    <Content Include="Assets\client\js\jobseekers\ui.jquery.selectjob.js" />
+    <Content Include="Assets\client\js\jobseekers\ui.plugins.min.js" />
+    <Content Include="Assets\client\js\jobseekers\ui.plugins.min9b11.js" />
+    <Content Include="Assets\client\js\jobseekers\ui.search-results.js" />
+    <Content Include="Assets\client\js\jobseekers\ui.vip-jobs.js" />
+    <Content Include="Assets\client\js\jobseeker\job\comparison.js" />
+    <Content Include="Assets\client\js\jquery\blockUI.js" />
+    <Content Include="Assets\client\js\jquery\jquery-1.10.2.min.js" />
+    <Content Include="Assets\client\js\jquery\jquery-1.8.3.min.js" />
+    <Content Include="Assets\client\js\jquery\jquery.cookie.min.js" />
+    <Content Include="Assets\client\js\jquery\jquery.dotdotdot.min.js" />
+    <Content Include="Assets\client\js\jquery\jquery.form.min.js" />
+    <Content Include="Assets\client\js\jquery\jquery.mousewheel.min.3.0.6.js" />
+    <Content Include="Assets\client\js\jquery\jquery.select2.full-screen.min.js" />
+    <Content Include="Assets\client\js\jquery\jquery.select2.select-all.min.js" />
+    <Content Include="Assets\client\js\jquery\jquery.simulate.min.js" />
+    <Content Include="Assets\client\js\jquery\jquery.slidebar.js" />
+    <Content Include="Assets\client\js\jquery\jquery.touchSwipe.min.js" />
+    <Content Include="Assets\client\js\jquery\jquery.validate.js" />
+    <Content Include="Assets\client\js\jquery\select2.js" />
+    <Content Include="Assets\client\js\jquery\select29b11.js" />
+    <Content Include="Assets\client\js\jquery\slick-carousel\slick.min.js" />
+    <Content Include="Assets\client\js\json2.js" />
+    <Content Include="Assets\client\js\lodash.js" />
+    <Content Include="Assets\client\js\moment.js" />
+    <Content Include="Assets\client\js\moment9b11.js" />
+    <Content Include="Assets\client\js\mustache.min9b11.js" />
+    <Content Include="Assets\client\js\pdfjs\modernizr.js" />
+    <Content Include="Assets\client\js\plugins\editable\bootstrap-editable.js" />
+    <Content Include="Assets\client\js\plugins\editable\img\clear.png" />
+    <Content Include="Assets\client\js\plugins\editable\img\loading.gif" />
+    <Content Include="Assets\client\js\plugins\jquery.jcarousel.min9b11.js" />
+    <Content Include="Assets\client\js\plugins\mobile-detect.min.js" />
+    <Content Include="Assets\client\js\plugins\switchery\switchery9b11.js" />
+    <Content Include="Assets\client\js\plugins\typeahead\typeahead.bundle.min.js" />
+    <Content Include="Assets\client\js\saveJobManager.js" />
+    <Content Include="Assets\client\js\string.js" />
+    <Content Include="Assets\client\js\ui.header.min.js" />
+    <Content Include="Assets\client\js\ui.header.min9b11.js" />
+    <Content Include="Assets\client\js\ui_customized.js" />
+    <Content Include="Assets\client\js\validate.js" />
+    <Content Include="Assets\client\vclick\assets\js\topcompany_all.js" />
+    <Content Include="Assets\client\vclick\assets\js\turbo.js" />
+    <Content Include="Assets\client\www.google-analytics.com\analytics.js" />
+    <Content Include="Assets\client\www.google-analytics.com\plugins\ga\inpage_linkid.js" />
+    <Content Include="Assets\client\www.googleadservices.com\pagead\f.txt" />
+    <Content Include="Assets\client\www.googletagmanager.com\gtm5445.html" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\client\css\fonts\fontawesome-webfont5b62.eot" />
+    <Content Include="Assets\client\css\fonts\fontawesome-webfont5b62.ttf" />
+    <Content Include="Assets\client\css\fonts\fontawesome-webfont5b62.woff" />
+    <Content Include="Assets\client\css\fonts\fontawesome-webfont5b62.woff2" />
+    <Content Include="Assets\client\css\fonts\fontawesome-webfont78ce.eot" />
+    <Content Include="Assets\client\css\fonts\fontawesome-webfont78ce.ttf" />
+    <Content Include="Assets\client\css\fonts\fontawesome-webfont78ce.woff" />
+    <Content Include="Assets\client\css\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Assets\client\css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\client\css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\client\css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\client\css\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Assets\client\css\jobseekers\slick-carousel\fonts\slick.eot" />
+    <Content Include="Assets\client\css\jobseekers\slick-carousel\fonts\slick.ttf" />
+    <Content Include="Assets\client\css\jobseekers\slick-carousel\fonts\slick.woff" />
+    <Content Include="Assets\client\css\jobseekers\slick-carousel\fonts\slickd41d.eot" />
+    <Content Include="Assets\client\images.vietnamworks.com\company_profile\41622.294.delayed" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\8b\10154042.2b8.delayed" />
+    <Content Include="Assets\client\images.vietnamworks.com\pictureofcompany\e9\10325753.2e8.delayed" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\ViecLam\Search.cshtml" />
+    <Content Include="Views\ViecLam\Detail.cshtml" />
+    <Content Include="Views\Shared\Layouts.cshtml" />
+    <Content Include="Views\Shared\LayoutPage.cshtml" />
+    <Content Include="Views\Page\Security.cshtml" />
+    <Content Include="Views\Shared\LayoutAccount.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Shared\Notification.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55993</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55993/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
