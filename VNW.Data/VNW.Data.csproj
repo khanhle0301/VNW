@@ -72,6 +72,10 @@
     <Compile Include="Migrations\201706200834545_AddIdentity.Designer.cs">
       <DependentUpon>201706200834545_AddIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706201226294_AddAlias.cs" />
+    <Compile Include="Migrations\201706201226294_AddAlias.Designer.cs">
+      <DependentUpon>201706201226294_AddAlias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\Auditable.cs" />
     <Compile Include="Models\Abstract\IAuditable.cs" />
@@ -121,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706200834545_AddIdentity.resx">
       <DependentUpon>201706200834545_AddIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706201226294_AddAlias.resx">
+      <DependentUpon>201706201226294_AddAlias.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

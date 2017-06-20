@@ -14,6 +14,13 @@ namespace VNW.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Search",
+                url: "tim-kiem.html",
+                defaults: new { controller = "TinTuyenDung", action = "Search", id = UrlParameter.Optional },
+                namespaces: new string[] { "VNW.Web.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

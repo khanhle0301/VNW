@@ -15,7 +15,6 @@ namespace VNW.Web.Controllers
 
         public ActionResult Index()
         {
-            var s = _nganhNgheService.GetAll().ToList();
             return View();
         }
 

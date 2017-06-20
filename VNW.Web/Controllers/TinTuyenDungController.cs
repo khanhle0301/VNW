@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace VNW.Web.Controllers
 {
-    public class ViecLamController : Controller
+    public class TinTuyenDungController : Controller
     {
         // GET: ViecLam
         public ActionResult Index()
@@ -14,7 +14,7 @@ namespace VNW.Web.Controllers
             return View();
         }
 
-        public ActionResult Search()
+        public ActionResult Search(string keyword, string industry, string location)
         {
             return View();
         }

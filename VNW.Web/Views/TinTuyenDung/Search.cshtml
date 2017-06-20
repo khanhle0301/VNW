@@ -3,6 +3,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section footerJS{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".js-example-basic-single").select2();
+        });
+    </script>
+}
+
 <div id="wrapper" class="main-wrapper">
     <div id="search-widget-wrapper">
         <div id="search-widget" class="collapse m-t-md in">
@@ -21,25 +29,11 @@
                                                         <input type="text" class="form-control search-all input-lg" placeholder="Nhập chức danh, vị trí, kỹ năng..." autocapitalize="off" autocorrect="off" role="textbox" spellcheck="false" value=""><i class="fa fa-close clear-keyword clickable absolute"></i>
                                                     </span>
                                                 </div>
-                                            </div><div class="col-sm-4 cate-search">
+                                            </div>
+
+                                            <div class="col-sm-4 cate-search">
                                                 <div class="textbox">
-                                                    <div class="select2-container" id="s2id_autogen10" style="width: 100%;">
-                                                        <a href="javascript:void(0)" class="select2-choice" tabindex="-1">
-                                                            <span class="select2-chosen" id="select2-chosen-11">Tất cả ngành nghề</span>
-                                                            <abbr class="select2-search-choice-close"></abbr>
-                                                            <span class="select2-arrow" role="presentation">
-                                                                <b role="presentation"></b>
-                                                            </span>
-                                                        </a><label for="s2id_autogen11" class="select2-offscreen">
-                                                        </label>
-                                                        <input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-11" id="s2id_autogen11"><div class="select2-drop select2-display-none select2-drop_full-screen select2-with-searchbox">
-                                                            <div class="select2-search">
-                                                                <label for="s2id_autogen11_search" class="select2-offscreen"></label>
-                                                                <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-11" id="s2id_autogen11_search" placeholder="">
-                                                            </div>
-                                                            <ul class="select2-results" role="listbox" id="select2-results-11">   </ul>
-                                                        </div>
-                                                    </div><select tabindex="-1" title="" style="display: none;">
+                                                    <select class="js-example-basic-single" style="width:100%">
                                                         <option value="-1">Tất cả ngành nghề</option>
                                                         <option value="83">An toàn lao động</option>
                                                         <option value="78">Bác sĩ</option>
@@ -113,27 +107,12 @@
                                                         <option value="64">Điện/Điện tử</option>
                                                     </select>
                                                 </div>
-                                            </div><div class="col-sm-4 level-search">
+                                            </div>
+
+
+                                            <div class="col-sm-4 level-search">
                                                 <div class="textbox">
-                                                    <div class="select2-container" id="s2id_autogen12" style="width: 100%;">
-                                                        <a href="javascript:void(0)" class="select2-choice" tabindex="-1">
-                                                            <span class="select2-chosen" id="select2-chosen-13">Tất cả địa điểm</span>
-                                                            <abbr class="select2-search-choice-close"></abbr>
-                                                            <span class="select2-arrow" role="presentation">
-                                                                <b role="presentation"></b>
-                                                            </span>
-                                                        </a><label for="s2id_autogen13" class="select2-offscreen">
-                                                        </label>
-                                                        <input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-13" id="s2id_autogen13">
-                                                        <div class="select2-drop select2-display-none select2-drop_full-screen select2-with-searchbox">
-                                                            <div class="select2-search">
-                                                                <label for="s2id_autogen13_search" class="select2-offscreen">
-                                                                </label>
-                                                                <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-13" id="s2id_autogen13_search" placeholder="">
-                                                            </div>   <ul class="select2-results" role="listbox" id="select2-results-13"></ul>
-                                                        </div>
-                                                    </div>
-                                                    <select tabindex="-1" title="" style="display: none;">
+                                                    <select class="js-example-basic-single" style="width:100%">
                                                         <option value="-1">Tất cả địa điểm</option>
                                                         <option value="29">Hồ Chí Minh</option>
                                                         <option value="24">Hà Nội</option>
@@ -650,7 +629,8 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                    <a href="https://www.vietnamworks.com/di-dong?utm_source=vnw_searchresult&amp;utm_medium=srbottombanner&amp;utm_campaign=MOBILEAPP&amp;utm_content=banner2" target="_blank"><img src="https://images.vietnamworks.com/logo/(5)-mobile-720x90_101350.gif" width="720" height="90" alt="" title="" border="0"></a></td>
+                                        <a href="https://www.vietnamworks.com/di-dong?utm_source=vnw_searchresult&amp;utm_medium=srbottombanner&amp;utm_campaign=MOBILEAPP&amp;utm_content=banner2" target="_blank"><img src="https://images.vietnamworks.com/logo/(5)-mobile-720x90_101350.gif" width="720" height="90" alt="" title="" border="0"></a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

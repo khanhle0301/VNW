@@ -15,6 +15,9 @@ namespace VNW.Data.Models
         [MaxLength(256)]
         public string Ten { set; get; }
 
+        [MaxLength(256)]
+        public string Alias { set; get; }
+
         public bool Status { set; get; }
 
         public virtual IEnumerable<TinTuyenDungTinh> TinTuyenDungTinhs { set; get; }

@@ -31,7 +31,7 @@
                         <!-- Jobs -->
                         <div role="tabpanel" class="tab-pane tab-job active" id="home">
                             <form class="form-inline form-adjacent" name="search" onSubmit="return submitBlockSearchForm()" id="frm_block_quick_search"
-                                  method="get">
+                                  form method="get" action="/tim-kiem.html">
                                 <div class="search-group">
                                     <div class="form-group col-sm-4 keyword-search no-padding">
                                         <i hidden class="fa fa-long-arrow-left clickable keyword-search__close"></i>
@@ -44,9 +44,9 @@
                                     <div class="form-group col-sm-3 category-search no-padding">
                                         <div class="border-text-box">
                                             <select data-search-input-placeholder="Tìm kiếm ngành nghề" data-placeholder="All categories" class="select-category"
-                                                    id="cateListMainSearch" name="industry[]">
-                                                <option value="-1">Tất cả ngành nghề</option>
-                                                <option value='83'>An to&agrave;n lao động</option>
+                                                    id="cateListMainSearch" name="industry">
+                                                <option value="-1" selected>Tất cả ngành nghề</option>
+                                                <option value='an-toan-lao-dong-83'>An to&agrave;n lao động</option>
                                                 <option value='78'>B&aacute;c sĩ</option>
                                                 <option value='33'>B&aacute;n h&agrave;ng</option>
                                                 <option value='34'>B&aacute;n h&agrave;ng kỹ thuật</option>
@@ -114,7 +114,7 @@
                                                 <option value='22'>Y tế/Chăm s&oacute;c sức khỏe</option>
                                                 <option value='77'>Địa chất/Kho&aacute;ng sản</option>
                                                 <option value='76'>Điện lạnh/Nhiệt lạnh</option>
-                                                <option value='64' selected>Điện/Điện tử</option>
+                                                <option value='64'>Điện/Điện tử</option>
                                                 <option value='39'>Kh&aacute;c</option>
                                             </select>
                                         </div>
@@ -122,10 +122,10 @@
                                     <div class="form-group location-search col-sm-3 no-padding">
                                         <div class="border-text-box">
                                             <select class="select-location" data-search-input-placeholder="Tìm kiếm địa điểm" id="locationMainSearch"
-                                                    name="location[]"
+                                                    name="location"
                                                     data-placeholder="Select location">
                                                 <option value="-1">Tất cả địa điểm</option>
-                                                <option value='29'>Hồ Ch&iacute; Minh</option>
+                                                <option value='ho-chi-minh-29'>Hồ Ch&iacute; Minh</option>
                                                 <option value='24'>H&agrave; Nội</option>
                                                 <option value='71'>ĐBSCL</option>
                                                 <option value='2'>An Giang</option>
