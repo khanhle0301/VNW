@@ -1,15 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
+using TeduShop.Service;
 
 namespace VNW.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private INganhNgheService _nganhNgheService;
+
+        public HomeController(INganhNgheService nganhNgheService)
+        {
+            this._nganhNgheService = nganhNgheService;
+        }
+
         public ActionResult Index()
         {
+            var s = _nganhNgheService.GetAll().ToList();
             return View();
         }
 
