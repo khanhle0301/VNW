@@ -80,6 +80,14 @@
     <Compile Include="Migrations\201706210410485_AddNhanMail.Designer.cs">
       <DependentUpon>201706210410485_AddNhanMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706211518375_AddParentId.cs" />
+    <Compile Include="Migrations\201706211518375_AddParentId.Designer.cs">
+      <DependentUpon>201706211518375_AddParentId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706211739295_EditChucDanh.cs" />
+    <Compile Include="Migrations\201706211739295_EditChucDanh.Designer.cs">
+      <DependentUpon>201706211739295_EditChucDanh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\Auditable.cs" />
     <Compile Include="Models\Abstract\IAuditable.cs" />
@@ -112,6 +120,8 @@
     <Compile Include="Repositories\TinTuyenDungNganhNgheRepository.cs" />
     <Compile Include="Repositories\TinTuyenDungRepository.cs" />
     <Compile Include="Repositories\TinTuyenDungTinhRepository.cs" />
+    <Compile Include="ViewModel\KyNangVm.cs" />
+    <Compile Include="ViewModel\TinTuyenDungVm.cs" />
     <Compile Include="VNWDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +145,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706210410485_AddNhanMail.resx">
       <DependentUpon>201706210410485_AddNhanMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706211518375_AddParentId.resx">
+      <DependentUpon>201706211518375_AddParentId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706211739295_EditChucDanh.resx">
+      <DependentUpon>201706211739295_EditChucDanh.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

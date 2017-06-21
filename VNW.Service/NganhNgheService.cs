@@ -20,45 +20,52 @@ namespace VNW.Service
         NganhNghe GetById(int id);
 
         void Save();
+
+        IEnumerable<NganhNghe> GetAllByChild();
     }
 
     public class NganhNgheService : INganhNgheService
     {
-        private INganhNgheRepository _NganhNgheRepository;
+        private INganhNgheRepository _nganhNgheRepository;
         private IUnitOfWork _unitOfWork;
 
-        public NganhNgheService(INganhNgheRepository NganhNgheRepository, IUnitOfWork unitOfWork)
+        public NganhNgheService(INganhNgheRepository nganhNgheRepository, IUnitOfWork unitOfWork)
         {
-            this._NganhNgheRepository = NganhNgheRepository;
+            this._nganhNgheRepository = nganhNgheRepository;
             this._unitOfWork = unitOfWork;
         }
 
         public NganhNghe Add(NganhNghe NganhNghe)
         {
-            return _NganhNgheRepository.Add(NganhNghe);
+            return _nganhNgheRepository.Add(NganhNghe);
         }
 
         public NganhNghe Delete(int id)
         {
-            return _NganhNgheRepository.Delete(id);
+            return _nganhNgheRepository.Delete(id);
         }
 
         public IEnumerable<NganhNghe> GetAll()
         {
-            return _NganhNgheRepository.GetAll();
+            return _nganhNgheRepository.GetAll();
         }
 
         public IEnumerable<NganhNghe> GetAll(string keyword)
         {
             if (!string.IsNullOrEmpty(keyword))
-                return _NganhNgheRepository.GetMulti(x => x.Ten.Contains(keyword));
+                return _nganhNgheRepository.GetMulti(x => x.Ten.Contains(keyword));
             else
-                return _NganhNgheRepository.GetAll();
+                return _nganhNgheRepository.GetAll();
+        }
+
+        public IEnumerable<NganhNghe> GetAllByChild()
+        {
+            return _nganhNgheRepository.GetMulti(x => x.Status && x.ParentId != null);
         }
 
         public NganhNghe GetById(int id)
         {
-            return _NganhNgheRepository.GetSingleById(id);
+            return _nganhNgheRepository.GetSingleById(id);
         }
 
         public void Save()
@@ -68,7 +75,7 @@ namespace VNW.Service
 
         public void Update(NganhNghe NganhNghe)
         {
-            _NganhNgheRepository.Update(NganhNghe);
+            _nganhNgheRepository.Update(NganhNghe);
         }
     }
 }

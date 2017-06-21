@@ -13,7 +13,7 @@ namespace VNW.Data.Models
 
         [Required]
         [MaxLength(256)]
-        public string ChucDang { set; get; }
+        public string ChucDanh { set; get; }
 
         public int CapBacId { set; get; }
 
