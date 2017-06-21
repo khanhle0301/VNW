@@ -1,18 +1,9 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using TeduShop.Service;
+﻿using System.Web.Mvc;
 
 namespace VNW.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private INganhNgheService _nganhNgheService;
-
-        public HomeController(INganhNgheService nganhNgheService)
-        {
-            this._nganhNgheService = nganhNgheService;
-        }
-
         public ActionResult Index()
         {
             return View();

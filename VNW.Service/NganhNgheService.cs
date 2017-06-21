@@ -3,7 +3,7 @@ using VNW.Data.Infrastructure;
 using VNW.Data.Models;
 using VNW.Data.Repositories;
 
-namespace TeduShop.Service
+namespace VNW.Service
 {
     public interface INganhNgheService
     {

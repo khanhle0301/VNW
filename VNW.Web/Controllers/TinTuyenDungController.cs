@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using VNW.Service;
 
 namespace VNW.Web.Controllers
 {
     public class TinTuyenDungController : Controller
     {
+        private ITinTuyenDungService _tinTuyenDungService;
+
+        public TinTuyenDungController(ITinTuyenDungService tinTuyenDungService)
+        {
+            this._tinTuyenDungService = tinTuyenDungService;
+        }
+
         // GET: ViecLam
         public ActionResult Index()
         {
@@ -22,6 +26,16 @@ namespace VNW.Web.Controllers
         public ActionResult Detail()
         {
             return View();
+        }
+
+        [HttpGet]
+        public JsonResult GetListTinByName(string keyword)
+        {
+            var model = _tinTuyenDungService.GetListTinByName(keyword);
+            return Json(new
+            {
+                data = model
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }

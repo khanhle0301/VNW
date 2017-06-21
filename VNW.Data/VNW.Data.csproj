@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201706201226294_AddAlias.Designer.cs">
       <DependentUpon>201706201226294_AddAlias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706210410485_AddNhanMail.cs" />
+    <Compile Include="Migrations\201706210410485_AddNhanMail.Designer.cs">
+      <DependentUpon>201706210410485_AddNhanMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\Auditable.cs" />
     <Compile Include="Models\Abstract\IAuditable.cs" />
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706201226294_AddAlias.resx">
       <DependentUpon>201706201226294_AddAlias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706210410485_AddNhanMail.resx">
+      <DependentUpon>201706210410485_AddNhanMail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

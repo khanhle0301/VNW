@@ -4,10 +4,14 @@
     Layout = "~/Views/Shared/LayoutAccount.cshtml";
 }
 
+@section footerJS{
+    <script src="~/Assets/client/js/controller/accountController.js"></script>
+}
+
+<input id="returnUrl" hidden value="@ViewBag.ReturnUrl" />
 <div id="vnw-log-in" class="container main-content">
     <div class="col-sm-8 col-sm-push-2">
         <div class="box box-lg">
-            <div class="alert alert-danger" id="err_top" style="display: none"><strong class="sprite_icon errorIcon"> Sorry, there are errors with the information you provided. Please scroll down to check for errors.</strong></div>
 
             <h1 class="text-center">Đăng Nhập</h1>
             <div class="text-center push-top-xs">Đăng nhập hoặc đăng ký thành viên nhanh bằng tài khoản</div>
@@ -25,16 +29,22 @@
 
                 <fieldset class="push-top-xs">
                     <hr>
-                    <p class="text-center">Đăng nhập bằng tài khoản VietnamWorks</p><br>
+                    <p class="text-center">Đăng nhập bằng tài khoản VietnamWorks</p>
+                    <br>
+                    <div class="alert alert-danger" id="err_top" style="display: none">
+                        <strong class="sprite_icon errorIcon" id="error_message">
+                            Sorry, there are errors with the information you provided. Please scroll down to check for errors.
+                        </strong>
+                    </div>
 
                     <div class="form-group">
                         <div class="col-md-8 col-md-offset-2">
-                            <input type="text" id="form_username" name="form[username]" required="required" placeholder="Nhập địa chỉ email của bạn" tabindex="1" class="form-control">
+                            <input type="text" id="form_username" name="username" required="required" placeholder="Nhập địa chỉ email của bạn" tabindex="1" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-8 col-md-offset-2">
-                            <input type="password" id="form_password" name="form[password]" required="required" placeholder="Nhập mật khẩu" tabindex="2" class="form-control">
+                            <input type="password" id="form_password" name="password" required="required" placeholder="Nhập mật khẩu" tabindex="2" class="form-control">
                             <span class="pull-right push-top-xs small"><a href="quen-mat-khau/index.html">Quên mật khẩu?</a></span>
                         </div>
                     </div>
@@ -44,7 +54,6 @@
                             <button type="submit" id="form_sign_in" name="form[sign_in]" tabindex="3" class="btn btn-primary btn-block">Đăng Nhập</button>
                         </div>
                     </div>
-                    <input type="hidden" id="form_csrf_token" name="csrf_token" value="k8NrmGVumJmXaWaWaZVycJOaZ2ximW2Xa8OeY53Da5Jom8huksuYZrVqZZyYmG1qaJea">
 
                     <hr>
                     <p class="text-center">

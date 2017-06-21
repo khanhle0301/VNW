@@ -4,6 +4,11 @@
     Layout = "~/Views/Shared/LayoutAccount.cshtml";
 }
 
+@section footerJS{
+    <script src="~/Assets/client/js/controller/accountController.js"></script>
+}
+
+
 <div id="vnw-sign-up" class="container main-content vnw-sign-up">
     <div class="col-sm-8 col-sm-push-2">
         <div class="row">
@@ -22,11 +27,15 @@
                         </button>
                     </div>
                     <!-- Begin Content-->
-                    <form name="frm" id="frmSignUp" method="post" class="form-horizontal">
+                    <form name="frm" id="frmSignOut" method="post" class="form-horizontal">
                         <fieldset class="push-top-xs">
                             <hr />
                             <p class="text-center m-b-none vnw-sign-up__use-email">Đăng ký bằng email</p>
                             <br />
+                            <div class="alert alert-danger" id="err_top" style="display: none">
+                                <strong class="sprite_icon errorIcon" id="error_message">
+                                </strong>
+                            </div>
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" name="txtLastname" id="txtLastname" value=""
@@ -66,23 +75,14 @@
                             <!-- Buttons-->
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="submit" name="Submit" value="I agree" class="btn btn-primary btn-block"
+                                    <button type="submit" id="form_sign_up" name="Submit" class="btn btn-primary btn-block"
                                             tabindex="6">
                                         <span>Đăng ký</span>
                                     </button>
                                     <span class="processing" style="display: none; height:30px;"></span>
                                 </div>
                             </div>
-                            <!--<div class="form-group">
-                                <div class="col-md-12">
-                                    <span>Nhấp chọn "Đăng ký", tôi đã đọc và đồng ý với các
-                                        <strong><a href="quy-dinh-bao-mat" title="Qui định bảo mật">Quy định bảo mật</a></strong>
-                                        và
-                                        <strong><a href="thoa-thuan-su-dung" title="Thỏa thuận sử dụng">Thỏa thuận sử dụng</a></strong>
-                                    </span>
-                                </div>
-                            </div>
-                            <hr/>-->
+                           
                             <div class="form-group vnw-sign-up__terms">
                                 <div class="col-md-12 text-center">
                                     <span class="gray-light small link-list">

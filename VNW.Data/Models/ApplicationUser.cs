@@ -21,6 +21,8 @@ namespace VNW.Data.Models
 
         public bool IsCustomer { set; get; }
 
+        public bool NhanMail { set; get; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

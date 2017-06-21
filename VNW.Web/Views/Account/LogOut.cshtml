@@ -1,0 +1,273 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/LayoutAccount.cshtml";
+}
+<div class="main-wrapper ">
+    <div class="page-logged-out">
+        <div class="page-logged-out__message box text-center">
+            <h1 style="color: #00cb3f;">Bạn vừa đăng xuất!</h1>
+            <p>Cảm ơn bạn đã sử dụng dịch vụ của VietnamWorks.</p>
+        </div>
+        <div class="container main-content">
+            <!--/ Logged Out Message -->
+            <!-- Jobs You Will Love -->
+            <div class="page-logged-out__loving-jobs">
+                <h2>Việc làm bạn sẽ thích</h2>
+                <div id="recommendation-jobs-loading" class="loading text-center m-t-lg m-b-lg gray-light" style="display: none;">
+                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                </div>
+                <div id="recommendation-jobs">
+                    <div class="row">
+                        <div class="col-sm-4 ">
+                            <a href="https://www.vietnamworks.com/office-manager-assistant-to-general-manager-818004-jv/?utm_source=logout&amp;utm_medium=RecoJobs&amp;utm_campaign=RecoJobs&amp;utm_content=gravity" class="gravity-item-link" data-item-id="818004" target="_blank">
+                                <div class="job box box-xs">
+                                    <div class="row">
+                                        <div id="job-rec-818004">
+                                            <div class="col-xs-4 job-rec-logo">
+                                                <div class="logo-box">
+                                                    <img class="img-responsive logo" src="https://images.vietnamworks.com/pictureofcompany/6f/10368245.png" alt="Office Manager &amp; Assistant to General Manager">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <p class="title text-clip">Office Manager &amp; Assistant to General Manager</p>
+                                                <p class="company text-clip">Systum Inc</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-4 ">
+                            <a href="https://www.vietnamworks.com/ke-toan-truong-1213-818000-jv/?utm_source=logout&amp;utm_medium=RecoJobs&amp;utm_campaign=RecoJobs&amp;utm_content=gravity" class="gravity-item-link" data-item-id="818000" target="_blank">
+                                <div class="job box box-xs">
+                                    <div class="row">
+                                        <div id="job-rec-818000">
+                                            <div class="col-xs-4 job-rec-logo">
+                                                <div class="logo-box">
+                                                    <img class="img-responsive logo" src="https://images.vietnamworks.com/pictureofcompany/1b/10314829.png" alt="Kế Toán Trưởng">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <p class="title text-clip">Kế Toán Trưởng</p>
+                                                <p class="company text-clip">Công Ty TNHH Nhà Hàng Vàng Son</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-4 ">
+                            <a href="https://www.vietnamworks.com/qa-staff-36-817999-jv/?utm_source=logout&amp;utm_medium=RecoJobs&amp;utm_campaign=RecoJobs&amp;utm_content=gravity" class="gravity-item-link" data-item-id="817999" target="_blank">
+                                <div class="job box box-xs">
+                                    <div class="row">
+                                        <div id="job-rec-817999">
+                                            <div class="col-xs-4 job-rec-logo">
+                                                <div class="logo-box">
+                                                    <img class="img-responsive logo" src="https://images.vietnamworks.com/pictureofcompany/3e/10228810.png" alt="QA Staff">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <p class="title text-clip">QA Staff</p>
+                                                <p class="company text-clip">Công Ty TNHH Việt Nam Dai-ichi Seiko.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div><div class="row">
+                        <div class="col-sm-4 ">
+                            <a href="https://www.vietnamworks.com/purchasing-supervisor-48-817997-jv/?utm_source=logout&amp;utm_medium=RecoJobs&amp;utm_campaign=RecoJobs&amp;utm_content=gravity" class="gravity-item-link" data-item-id="817997" target="_blank">
+                                <div class="job box box-xs">
+                                    <div class="row">
+                                        <div id="job-rec-817997">
+                                            <div class="col-xs-4 job-rec-logo">
+                                                <div class="logo-box">
+                                                    <img class="img-responsive logo" src="https://images.vietnamworks.com/pictureofcompany/25/4911105.jpg" alt="Purchasing Supervisor">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <p class="title text-clip">Purchasing Supervisor</p>
+                                                <p class="company text-clip">Avery Dennison RBIS Vietnam</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-4 ">
+                            <a href="https://www.vietnamworks.com/quality-control-supervisor-qc-supervisor-1-817998-jv/?utm_source=logout&amp;utm_medium=RecoJobs&amp;utm_campaign=RecoJobs&amp;utm_content=gravity" class="gravity-item-link" data-item-id="817998" target="_blank">
+                                <div class="job box box-xs">
+                                    <div class="row">
+                                        <div id="job-rec-817998">
+                                            <div class="col-xs-4 job-rec-logo">
+                                                <div class="logo-box">
+                                                    <img class="img-responsive logo" src="https://images.vietnamworks.com/pictureofcompany/3e/10228810.png" alt="Quality Control Supervisor (QC Supervisor)">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <p class="title text-clip">Quality Control Supervisor (QC Supervisor)</p>
+                                                <p class="company text-clip">Công Ty TNHH Việt Nam Dai-ichi Seiko.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-4 hidden-xs">
+                            <a href="https://www.vietnamworks.com/digital-senior-account-executive-817985-jv/?utm_source=logout&amp;utm_medium=RecoJobs&amp;utm_campaign=RecoJobs&amp;utm_content=gravity" class="gravity-item-link" data-item-id="817985" target="_blank">
+                                <div class="job box box-xs">
+                                    <div class="row">
+                                        <div id="job-rec-817985">
+                                            <div class="col-xs-4 job-rec-logo">
+                                                <div class="logo-box">
+                                                    <img class="img-responsive logo" src="https://images.vietnamworks.com/img/ja-default-company-logo.png" alt="Digital Senior Account Executive">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <p class="title text-clip">Digital Senior Account Executive</p>
+                                                <p class="company text-clip">Vietnamworks' Client</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div><div class="row hidden-xs">
+                        <div class="col-sm-4 ">
+                            <a href="https://www.vietnamworks.com/senior-java-developer-105-817992-jv/?utm_source=logout&amp;utm_medium=RecoJobs&amp;utm_campaign=RecoJobs&amp;utm_content=gravity" class="gravity-item-link" data-item-id="817992" target="_blank">
+                                <div class="job box box-xs">
+                                    <div class="row">
+                                        <div id="job-rec-817992">
+                                            <div class="col-xs-4 job-rec-logo">
+                                                <div class="logo-box">
+                                                    <img class="img-responsive logo" src="https://images.vietnamworks.com/pictureofcompany/9d/10112226.png" alt="Senior JAVA Developer">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <p class="title text-clip">Senior JAVA Developer</p>
+                                                <p class="company text-clip">UNIT Corp</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-4 ">
+                            <a href="https://www.vietnamworks.com/tro-ly-ky-su-truong-5-817994-jv/?utm_source=logout&amp;utm_medium=RecoJobs&amp;utm_campaign=RecoJobs&amp;utm_content=gravity" class="gravity-item-link" data-item-id="817994" target="_blank">
+                                <div class="job box box-xs">
+                                    <div class="row">
+                                        <div id="job-rec-817994">
+                                            <div class="col-xs-4 job-rec-logo">
+                                                <div class="logo-box">
+                                                    <img class="img-responsive logo" src="https://images.vietnamworks.com/pictureofcompany/2b/3045718.jpg" alt="Trợ Lý Kỹ Sư Trưởng">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <p class="title text-clip">Trợ Lý Kỹ Sư Trưởng</p>
+                                                <p class="company text-clip">Savills Vietnam Ltd.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-sm-4 ">
+                            <a href="https://www.vietnamworks.com/nhan-vien-marketing-xuat-khau-817978-jv/?utm_source=logout&amp;utm_medium=RecoJobs&amp;utm_campaign=RecoJobs&amp;utm_content=gravity" class="gravity-item-link" data-item-id="817978" target="_blank">
+                                <div class="job box box-xs">
+                                    <div class="row">
+                                        <div id="job-rec-817978">
+                                            <div class="col-xs-4 job-rec-logo">
+                                                <div class="logo-box">
+                                                    <img class="img-responsive logo" src="https://images.vietnamworks.com/pictureofcompany/9c/10368094.png" alt="Nhân Viên Marketing Xuất Khẩu">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <p class="title text-clip">Nhân Viên Marketing Xuất Khẩu</p>
+                                                <p class="company text-clip">Lam Thanh S&amp;t CO., LTD</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row visible-xs">
+                    <div class="col-sm-12">
+                        <div class="box box-xs">
+                            <a class="view-more">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ Jobs You Will Love -->
+            <!-- Explore More Products -->
+            <div class="page-logged-out__more-products">
+                <h2>Khám phá những dịch vụ khác</h2>
+                <div class="row">
+                    <!-- Product -->
+                    <div class="col-sm-4">
+                        <a href="http://topit.vietnamworks.com/">
+                            <div class="product box box-sm">
+                                <!-- Logo -->
+                                <div class="logo">
+                                    <img src="https://images.vietnamworks.com/img/jobseekers/logo-topITworks.png" alt="VietnamWorks Logo" width="165">
+                                </div>
+                                <h3>TRANG VIỆC LÀM NGÀNH IT</h3>
+                                <!-- Description -->
+                                <p>
+                                    Đón đầu xu hướng và phát triển nghề nghiệp ngành công nghệ.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Product -->
+                    <div class="col-sm-4">
+                        <a href="http://japan.vietnamworks.com/">
+                            <div class="product box box-sm">
+                                <!-- Logo -->
+                                <div class="logo">
+                                    <img src="https://images.vietnamworks.com/img/jobseekers/logo-japanworks.png" alt="JapanWorks Logo" width="199">
+                                </div>
+                                <h3>日本語のお仕事情報No.1</h3>
+                                <!-- Description -->
+                                <p>
+                                    Trang mạng việc làm tiếng Nhật
+                                    <br>
+                                    lớn nhất Việt Nam.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Product -->
+                    <div class="col-sm-4">
+                        <a href="https://www.vietnamworks.com/di-dong">
+                            <div class="product box box-sm">
+                                <!-- Logo -->
+                                <div class="logo">
+                                    <img src="https://images.vietnamworks.com/img/jobseekers/logo-vietnamworks.png" width="152" alt="VietnamWorks Logo">
+                                </div>
+                                <h3>ỨNG DỤNG TÌM VIỆC TRÊN DI ĐỘNG</h3>
+                                <!-- Description -->
+                                <p>
+                                    Tìm việc và ứng tuyển nhanh chóng trên
+                                    <br>
+                                    điện thoại di động.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--/ Explore More Products -->
+        </div>
+    </div>
+</div>

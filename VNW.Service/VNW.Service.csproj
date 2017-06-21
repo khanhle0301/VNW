@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="NganhNgheService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TinTuyenDungService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VNW.Data\VNW.Data.csproj">

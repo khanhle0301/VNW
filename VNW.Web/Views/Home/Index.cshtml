@@ -3,6 +3,15 @@
     Layout = "~/Views/Shared/LayoutHome.cshtml";
 }
 
+@section footerJS{
+<script type="text/javascript">
+        $(document).ready(function () {
+            $(".js-example-basic-single").select2();
+        });
+</script>
+    <script src="~/Assets/client/js/controller/commonController.js"></script>
+}
+
 <div class="main-wrapper home">
     <!-- Search Widget -->
     <div id="search-widget-wrapper" class="relative">
@@ -37,13 +46,13 @@
                                         <i hidden class="fa fa-long-arrow-left clickable keyword-search__close"></i>
                                         <i class="fa fa-close clear-keyword clickable absolute"></i>
                                         <div class="border-text-box">
-                                            <input type="text" name="keyword" id="keywordMainSearch" value=""
+                                            <input type="text" name="keyword" id="txtKeyword" value=""
                                                    class="form-control job-typeahead" placeholder="Nhập chức danh, vị trí, kỹ năng...">
                                         </div>
                                     </div>
                                     <div class="form-group col-sm-3 category-search no-padding">
                                         <div class="border-text-box">
-                                            <select data-search-input-placeholder="Tìm kiếm ngành nghề" data-placeholder="All categories" class="select-category"
+                                            <select data-search-input-placeholder="Tìm kiếm ngành nghề" data-placeholder="All categories" class="select-category js-example-basic-single" style="width:100%"
                                                     id="cateListMainSearch" name="industry">
                                                 <option value="-1" selected>Tất cả ngành nghề</option>
                                                 <option value='an-toan-lao-dong-83'>An to&agrave;n lao động</option>
@@ -121,7 +130,7 @@
                                     </div>
                                     <div class="form-group location-search col-sm-3 no-padding">
                                         <div class="border-text-box">
-                                            <select class="select-location" data-search-input-placeholder="Tìm kiếm địa điểm" id="locationMainSearch"
+                                            <select class="select-location js-example-basic-single" style="width:100%" data-search-input-placeholder="Tìm kiếm địa điểm" id="locationMainSearch"
                                                     name="location"
                                                     data-placeholder="Select location">
                                                 <option value="-1">Tất cả địa điểm</option>

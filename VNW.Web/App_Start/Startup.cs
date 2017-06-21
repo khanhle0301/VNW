@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
-using TeduShop.Service;
+using VNW.Service;
 using VNW.Data;
 using VNW.Data.Infrastructure;
 using VNW.Data.Models;

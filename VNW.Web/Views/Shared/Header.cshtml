@@ -1,4 +1,8 @@
-﻿<nav class="navbar horizontal-navbar navbar-default">
+﻿@{
+    var urlrequest = HttpContext.Current.Request.Url.AbsolutePath;
+}
+
+<nav class="navbar horizontal-navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -32,16 +36,7 @@
                         <i class="glyphicon glyphicon-search"></i>
                     </a>
                 </li>
-                <li class="language-switcher en">
-                    <a href="javascript: switchLanguage(2);" title="English - Vietnamworks">
-                        <img class="vi"
-                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAdCAIAAABewBleAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5ZTU4MDNmOS03NjE2LTQ0OTYtYmVjYy0xNjlkOWFiNTI2NTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTMzRUMxNkQ0QjZCMTFFNkE3NTM5NEI0RTVBQUI5QjciIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTMzRUMxNkM0QjZCMTFFNkE3NTM5NEI0RTVBQUI5QjciIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0MmFlOTM1My1iY2ExLTRjZGQtYjdhMy1mZWM5OTQ0MDc2MTMiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDoyMjg5MzVmYS04ZTM0LTExNzktOTE4My1kZTg5YWNkNDM3NTgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz70R3S/AAABg0lEQVR42mJ8YafBMNCAiWEQgFFHDC9HMILRwDqCVe8vq/4fCg1hoVA/hwMDIzPj7wsDGhJsVhxARGGMUOQIVu0/zGKsTMKsFMYIRY7gcIQyOB0Z6ZEmGDkZWGT/oseFLSeUYc3BuvUHmuyfJ8z/v1HVEf9/MLCa/ONO5GNkweJpYIwIzmRFKP7z/9viz78XUz06/jN8W8b6IefL36e/8Cv8++zXh/zPXxexALXQJE38vsn8NuXPjx1fcCn4sefLu5Q/v6+x0Dhh/mD41Mn0dcYnTJkvcz99amX6/51euYNRAJtZ/Ix0zaLsNhzQpPL3PxChCdLDESzKf5ll2EBp8OXvD4VfPhR8/vsclFqZJVhZNf7SyREcTiCv/9z/9V3y79+XmX9fYQEmxp97QamV3fE/DQsrlNLagO1z16fv2xF6gYXSxxYmjlMfOYPYGRj+kZzCSG7osv1nFvv39wkz9oCV+vfvHRPDD1qHxC9GXC4Agn/PmOiXO0bbmKOOGAGOAAgwAEPPgYDfS9N9AAAAAElFTkSuQmCC"
-                             width="24" alt="">
-                        <img class="en"
-                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAaCAMAAADyku75AAAC+lBMVEV4jstIWLvbIgT/09D/XFL/KwbL0e95kMt4jcbpWVDM2+74zs1rcrMjL7BGUagME6fmVk750M91kM/80s5PVcBNUb9JWbtLVLZzd7AAP6T///9tgsdGWL1MXLx6gLdETrMhK69NV6mhhKYqLZj40dFzj8/5xsVFXb/oYGnJNjj53NzyxsdMe8BJeL4FUKwAQ6bymJteMozxZWTlWFHqU0jmUEbe6PTN3O/V2un919b81Nb609T80M79xsIBOqEBOpwAPpryeHrjXWTlWVLnWE+2HyziJhb7KQX7///w+f3r8ff99PXq7fXT4fL+7e6+0+y2zOju4ub14uT74uGDotOTq89qkMh6kMVTgcP5v77qwLwuabcqYbEiXbCjh6r4qKkLS6jzn6EkKJkAOpfvjI7MeYngiIHrgXrydHTocHPiaGroXGHmTFLYUUfn6PHy7O/V5O/k5+3J2uz67ev45+ny5ui+xt6Xtdi+ydequtL2ysx/mctnhsRjhsH0u8D0v78+bLn3t7VIdLVmfbNScrFGb7D5r68JU69pdKuymaiRg6erlKMZTaMNR58AOZXFjZTwkJNhNZHag5DCgoz0gn7TW2jpXWTsbmLmbWHdXV3aTlzpY1vZXFb+WlDfU038TETLO0LlQje3HzLkLS7lJATeIgTOHwPx9/rw8/jj7/jV5PXO2+zJzurM0uTC0eTG0OHC0OGvx+D93t+vxd+jw9/j3N7W1t2KsN3x2dh9pdfT1da7vdb21tR3oM7Gxc1wmcpshMpBe8TQqMNfisNJYMDcwb4pc75egb1Seb3wtbtAdrvNtbp3lbpNebrhtbd+lbd9i7ZFebZAT7XluLOdkbBccLA9abAgY68ZVK9NZK5JTa5DVaxiaKuJh6qAeKqvi6kASqkiJahFSqc0W6QAS6RSa6K4jKCIgqAqV591RZ3XkJGyf5HvkpDwlo7Xk4s5D4a9b4U3D4VfNX/SZnHpZW/EbGvrVk+7J07tVkyrGka2IUWqGUXjR0CtHiciiAzRAAACfElEQVQ4y2K408HHx8ODjG9/+pt7rqy5xyHZoffF0+evPztlpR3dxZDEF84hL8+BwJcYlDRN69fW9khKJlw73/11TlZK/Y6tFQzKiuEMYmIMCCyjqqRpYmtRc6M99ua9znczpk+oy/daH8ogIScOlGZkhGMhdUNXkMLYY8fjUmfOeNNoWeLjX90KUsiITWF1S7PSJEejKZFBPqsCQhp6gVZzgKQRGGS1qW1h5ZUPU7Md2yz9fPy3R8QkOOBQCJBa4On+LKOMRK0VZgE7D+rZ2SfjsFptT9qcTAO14PzVobXRevp29n24FGq9TU+s8vbwNC8Pi9DV0W1qxWW1d7BWibeUlIenma85F1fRugrsChcaVKmoCHKDgKCNsLAwt3YUVqsXuS0UMHY2NhYAAhdOIHARyMWmcOKipUzoYBlA2KyOW4BdYTg7IyM7AssIxS1w+yMgALTc2dnYxYUTDOaBrJZlZ5dFYKEjE3/lxIO8oQL0kCDQMyCgzSDB81BBWloBgQ/wfvytYS0lJeUXbKlV7AUKHiDYwJCUxM/Py4uC3/8EKfSrm5CRfnlfKCjAdc42MTy6JS4iKiqCjF9+nybosTzwZIrR7LT+rqsxkCjcXbaGDQ0AdmiWk6BngUWgVWPK7Jmp9y9cBCeKKG0bZjQQn+OksnJLeVFeUOQUI8dJz+62xD5xYDD9MZcFDcxfrGHtG3Zq78bCYss2x2yn1M4z1yUZmJa4s6IBdzcNKy7dB9H7Nxd4aSVmGGW+6u54jFuhpF7MiRD/vCA1g8xZUyd3Mcz7hsVqoEIdSUn9hIaQALNSbYMv2emTsXtmmrU5SKF+e/Thym2lmyINpucCAItz5El1vpdTAAAAAElFTkSuQmCC"
-                             width="24" alt="">
-                    </a>
-                </li>
+
                 <li>
                     <a class="alert-notifications notifications clickable" data-original-title="" title="">
                         <i class="glyphicon glyphicon-bell"></i>
@@ -54,11 +49,68 @@
                         <span class="number" style="display:none;" id="unread-message"></span>
                     </a>
                 </li>
-                <li>
-                    <a href="dang-nhap.html"><i class="fa fa-fw fa-lg fa-sign-in"></i>Đăng Nhập</a>
-                </li>
-                <li>
-                    <a href="dang-ky.html">Đăng Ký</a>
+                @if (!Request.IsAuthenticated)
+                {
+                    <li>
+                        <a href="dang-nhap.html?returnUrl=@urlrequest"><i class="fa fa-fw fa-lg fa-sign-in"></i>Đăng Nhập</a>
+                    </li>
+                    <li>
+                        <a href="dang-ky.html">Đăng Ký</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="dropdown dropdown-popover-theme user-account dropdown-with-icon">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="fa-stack fa-lg m-t-n-xs">
+                                <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                            </span>
+                            @User.Identity.Name
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="">
+                                <span class="no-icon static-menu-item user-account__name" href="#">
+                                    @User.Identity.Name
+                                </span>
+                                <br />
+                                <a href="/ho-so" class="btn btn-primary">
+                                    Hồ Sơ Việc Làm
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/quan-ly-nghe-nghiep/tai-khoan"><i class="fa fa-fw fa-lg fa-user"></i>Thông Tin Tài Khoản</a>
+                            </li>
+                            <li>
+                                <a href="/quan-ly-nghe-nghiep/viec-lam-cua-toi"><i class="fa fa-fw fa-lg fa-heart"></i>Việc Làm Của Tôi</a>
+                            </li>
+                            <li>
+                                <a href="/quan-ly-nghe-nghiep/thong-bao-viec-lam"><i class="fa fa-fw fa-lg fa-envelope"></i>Thông Báo Việc Làm</a>
+                            </li>
+                            <li>
+                                <a href="/quan-ly-nghe-nghiep/phan-hoi-cua-nha-tuyen-dung"><i class="fa fa-fw fa-lg fa-comments-o"></i>Phản Hồi</a>
+                            </li>
+                            <li>
+                                <a href="/quan-ly-nghe-nghiep/nha-tuyen-dung-nao-xem-ho-so-cua-ban">
+                                    <i class="fa fa-fw fa-lg fa-eye"></i>Nhà Tuyển
+                                    Dụng Xem Hồ
+                                    Sơ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/thoat.html"><i class="fa fa-fw fa-lg fa-sign-out"></i>Thoát</a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+                <li class="horizontal-navbar__employer-site">
+                    <a target="_blank" href="https://employer.vietnamworks.com/?lang=1">
+                        <strong class="text-white hidden-xs">
+                            NHÀ TUYỂN
+                            DỤNG
+                        </strong><br />
+                        <span class="text-white">Đăng Tuyển & Kiếm Nhân Tài</span>
+                    </a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->

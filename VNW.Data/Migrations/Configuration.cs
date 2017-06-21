@@ -1,31 +1,38 @@
 namespace VNW.Data.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
     using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<VNW.Data.VNWDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(VNW.Data.VNWDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            CreateUser(context);
+        }
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+        private void CreateUser(VNWDbContext context)
+        {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new VNWDbContext()));
+
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new VNWDbContext()));
+
+            var user = new ApplicationUser()
+            {
+                UserName = "khanhle0301.it@gmail.com",
+                Email = "khanhle0301.it@gmail.com",
+                EmailConfirmed = true,
+                BirthDay = DateTime.Now,
+                FullName = "Lê Khanh"
+            };
+            manager.Create(user, "123654$");
         }
     }
 }
