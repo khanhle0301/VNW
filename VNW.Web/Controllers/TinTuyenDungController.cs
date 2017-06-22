@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using VNW.Data.Models;
 using VNW.Service;
@@ -23,8 +24,33 @@ namespace VNW.Web.Controllers
 
         public ActionResult Search(string keyword, string industry, string location)
         {
-            var s = _tinTuyenDungService.GetListBeginTin(keyword, industry, location);
-            return View();
+            var listIdTinTuyenDung = _tinTuyenDungService.GetListBeginTin(keyword, industry, location);
+
+            var listKyNang = _tinTuyenDungService.GetKyNang(listIdTinTuyenDung);
+
+            var listTinh = _tinTuyenDungService.GetTinh(listIdTinTuyenDung);
+
+            var listNganhNghe = _tinTuyenDungService.GetNganhNghe(listIdTinTuyenDung);
+
+            var listCapBac = _tinTuyenDungService.GetCapBac(listIdTinTuyenDung);
+
+            var tinTuyenDungHomeVm = new TinTuyenDungHomeVm();
+
+            tinTuyenDungHomeVm.ListKyNang = listKyNang;
+
+            tinTuyenDungHomeVm.ListTinh = listTinh;
+
+            tinTuyenDungHomeVm.ListNganhNghe = listNganhNghe;
+
+            tinTuyenDungHomeVm.ListCapBac = listCapBac;
+
+            tinTuyenDungHomeVm.Keyword = keyword;
+
+            tinTuyenDungHomeVm.Industry = industry;
+
+            tinTuyenDungHomeVm.Location = location;
+
+            return View(tinTuyenDungHomeVm);
         }
 
         public ActionResult Detail()
@@ -56,6 +82,22 @@ namespace VNW.Web.Controllers
             var model = _tinhService.GetAll();
             var viewModel = Mapper.Map<IEnumerable<Tinh>, IEnumerable<TinhViewModel>>(model);
             return PartialView(viewModel);
+        }
+
+        [HttpGet]
+        public JsonResult LoadData(int page, int pageSize, string keyword = "", string industry = "", string location = "", string sort = "",
+            string nganhnghe = "", string diadiem = "", string kynang = "", string capbac = "", string mucluong = "")
+        {
+            var model = _tinTuyenDungService.GetListSearch(keyword, industry, location, sort,
+             nganhnghe, diadiem, kynang, capbac, mucluong);
+            int totalRow = model.Count();
+            model = model.Skip((page - 1) * pageSize).Take(pageSize);
+            return Json(new
+            {
+                data = model,
+                total = totalRow,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }

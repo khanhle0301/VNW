@@ -4,11 +4,11 @@
 }
 
 @section footerJS{
-<script type="text/javascript">
+    <script type="text/javascript">
         $(document).ready(function () {
             $(".js-example-basic-single").select2();
         });
-</script>
+    </script>
     <script src="~/Assets/client/js/controller/commonController.js"></script>
 }
 
@@ -61,8 +61,8 @@
                                     </div>
                                     <div class="form-group location-search col-sm-3 no-padding">
                                         <div class="border-text-box">
-                                            <select class="select-location js-example-basic-single" style="width:100%" data-search-input-placeholder="Tìm kiếm địa điểm" id="locationMainSearch"
-                                                    name="location"
+                                            <select class="select-location js-example-basic-single" style="width:100%" data-search-input-placeholder="Tìm kiếm địa điểm"
+                                                    id="locationMainSearch" name="location"
                                                     data-placeholder="Select location">
                                                 <option value="tat-ca-0">Tất cả địa điểm</option>
                                                 @{ Html.RenderAction("Location", "TinTuyenDung");}

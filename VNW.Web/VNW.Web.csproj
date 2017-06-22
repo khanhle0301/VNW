@@ -222,6 +222,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Assets\client\js\controller\tinSearchController.js" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -234,6 +235,7 @@
     <Compile Include="Models\NganhNgheViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\TinhViewModel.cs" />
+    <Compile Include="Models\TinTuyenDungHomeVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -560,6 +562,7 @@
     <Content Include="Assets\client\js\jobseekers\ui.vip-jobs.js" />
     <Content Include="Assets\client\js\jobseeker\job\comparison.js" />
     <Content Include="Assets\client\js\jquery-ui.js" />
+    <Content Include="Assets\client\js\jquery.twbsPagination.min.js" />
     <Content Include="Assets\client\js\jquery\blockUI.js" />
     <Content Include="Assets\client\js\jquery\jquery-1.10.2.min.js" />
     <Content Include="Assets\client\js\jquery\jquery-1.8.3.min.js" />
@@ -580,7 +583,10 @@
     <Content Include="Assets\client\js\lodash.js" />
     <Content Include="Assets\client\js\moment.js" />
     <Content Include="Assets\client\js\moment9b11.js" />
+    <Content Include="Assets\client\js\mustache-wax.js" />
+    <Content Include="Assets\client\js\mustache.js" />
     <Content Include="Assets\client\js\mustache.min9b11.js" />
+    <Content Include="Assets\client\js\numeral.js" />
     <Content Include="Assets\client\js\pdfjs\modernizr.js" />
     <Content Include="Assets\client\js\plugins\editable\bootstrap-editable.js" />
     <Content Include="Assets\client\js\plugins\editable\img\clear.png" />

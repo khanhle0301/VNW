@@ -20,9 +20,16 @@ namespace VNW.Data.Repositories
 
         IEnumerable<KyNangVm> GetKyNang(IEnumerable<int> tinTuyenDung);
 
-        IEnumerable<TinTuyenDungVm> GetListBeginTin(string keyword, string industry, string location);
+        IEnumerable<TinhVm> GetTinh(IEnumerable<int> tinTuyenDung);
 
-        IEnumerable<TinTuyenDungVm> GetListSearch(string keyword, string industry, string location, string sort, string nganhnghe, string diadiem, string kynang, string capbac, string mucluong);
+        IEnumerable<NganhNgheVm> GetNganhNghe(IEnumerable<int> tinTuyenDung);
+
+        IEnumerable<CapBacVm> GetCapBac(IEnumerable<int> tinTuyenDung);
+
+        IEnumerable<int> GetListBeginTin(string keyword, string industry, string location);
+
+        IEnumerable<TinTuyenDungVm> GetListSearch(string keyword, string industry, string location, string sort,
+            string nganhnghe, string diadiem, string kynang, string capbac, string mucluong);
     }
 
     public class TinTuyenDungRepository : RepositoryBase<TinTuyenDung>, ITinTuyenDungRepository
@@ -38,6 +45,7 @@ namespace VNW.Data.Repositories
                          on kn.Id equals ttdkn.KyNangId
                          join ttd in tinTuyenDung
                          on ttdkn.TinTuyenDungId equals ttd
+                         where kn.Status
                          group kn by new
                          {
                              kn.Id,
@@ -55,7 +63,7 @@ namespace VNW.Data.Repositories
             return query;
         }
 
-        public IEnumerable<TinTuyenDungVm> GetListBeginTin(string keyword, string industry, string location)
+        public IEnumerable<int> GetListBeginTin(string keyword, string industry, string location)
         {
             var queryTTD = from ttd in DbContext.TinTuyenDungs
                            where ttd.ChucDanh.Contains(keyword) && ttd.Status
@@ -79,95 +87,89 @@ namespace VNW.Data.Repositories
                 queryTinh = GetIdTinByTinh(queryTinh, tinhId);
             }
 
-            var query = (from ct in DbContext.CongTys
-                         join ttd in DbContext.TinTuyenDungs
-                         on ct.Id equals ttd.CongTyId
-                         join ttdTinh in queryTinh
-                         on ttd.Id equals ttdTinh
-
-                         select new
-                         {
-                             Id = ttd.Id,
-                             ChucDanh = ttd.ChucDanh,
-                             TuLuong = ttd.TuLuong,
-                             DenLuong = ttd.DenLuong,
-                             HienThiLuong = ttd.HienThiLuong,
-                             TenCongTy = ct.Ten,
-                             Logo = ct.Logo,
-                             NgayDang = ttd.UpdatedDate
-                         }).AsEnumerable().Select(x => new TinTuyenDungVm()
-                         {
-                             Id = x.Id,
-                             ChucDanh = x.ChucDanh,
-                             TuLuong = x.TuLuong,
-                             DenLuong = x.DenLuong,
-                             HienThiLuong = x.HienThiLuong,
-                             TenCongTy = x.TenCongTy,
-                             Logo = x.Logo,
-                             NgayDang = x.NgayDang
-                         });
-
-            return query;
+            return queryTinh;
         }
 
         public IEnumerable<TinTuyenDungVm> GetListSearch(string keyword, string industry, string location,
             string sort, string nganhnghe, string diadiem, string kynang, string capbac, string mucluong)
         {
-            var queryTTD = GetListBeginTin(keyword, industry, location).Select(x => x.Id);
+            var queryTTD = GetListBeginTin(keyword, industry, location);
 
-            IEnumerable<int> queryNganhNghe = queryTTD;
+            IEnumerable<int> queryNganhNghe = Enumerable.Empty<int>();
 
             if (!string.IsNullOrEmpty(nganhnghe))
             {
                 var typeNganhNghe = nganhnghe.Split(',');
                 foreach (var item in typeNganhNghe)
                 {
-                    queryNganhNghe = queryNganhNghe.Concat(this.GetIdTinByNganhNghe(queryNganhNghe, int.Parse(item)));
+                    queryNganhNghe = queryNganhNghe.Concat(this.GetIdTinByNganhNghe(queryTTD, int.Parse(item)));
                 }
             }
 
-            IEnumerable<int> queryDiaDiem = queryNganhNghe;
+            else
+            {
+                queryNganhNghe = queryNganhNghe.Concat(queryTTD);
+            }
+
+
+            IEnumerable<int> queryDiaDiem = Enumerable.Empty<int>();
 
             if (!string.IsNullOrEmpty(diadiem))
             {
                 var typeDiaDiem = diadiem.Split(',');
                 foreach (var item in typeDiaDiem)
                 {
-                    queryDiaDiem = queryDiaDiem.Concat(this.GetIdTinByTinh(queryDiaDiem, int.Parse(item)));
+                    queryDiaDiem = queryDiaDiem.Concat(this.GetIdTinByTinh(queryNganhNghe, int.Parse(item)));
                 }
             }
 
-            IEnumerable<int> queryKyNang = queryDiaDiem;
+            else
+            {
+                queryDiaDiem = queryDiaDiem.Concat(queryNganhNghe);
+            }
+
+            IEnumerable<int> queryKyNang = Enumerable.Empty<int>();
 
             if (!string.IsNullOrEmpty(kynang))
             {
                 var typeKyNang = kynang.Split(',');
                 foreach (var item in typeKyNang)
                 {
-                    queryKyNang = queryKyNang.Concat(this.GetIdTinByKyNang(queryKyNang, int.Parse(item)));
+                    queryKyNang = queryKyNang.Concat(this.GetIdTinByKyNang(queryDiaDiem, int.Parse(item)));
                 }
             }
 
-            IEnumerable<int> queryCapBac = queryKyNang;
+            else
+            {
+                queryKyNang = queryKyNang.Concat(queryDiaDiem);
+            }
+
+            IEnumerable<int> queryCapBac = Enumerable.Empty<int>();
 
             if (!string.IsNullOrEmpty(capbac))
             {
                 var typeCapbac = capbac.Split(',');
                 foreach (var item in typeCapbac)
                 {
-                    queryCapBac = queryCapBac.Concat(this.GetIdTinByCapBac(queryCapBac, int.Parse(item)));
+                    queryCapBac = queryCapBac.Concat(this.GetIdTinByCapBac(queryKyNang, int.Parse(item)));
                 }
             }
 
-            IEnumerable<int> priceResult = queryCapBac;
+            else
+            {
+                queryCapBac = queryCapBac.Concat(queryKyNang);
+            }
+
+            IEnumerable<int> priceResult = Enumerable.Empty<int>();
 
             if (!string.IsNullOrEmpty(mucluong))
             {
-                var priceArr = mucluong.Split(',');
-                foreach (var item in priceArr)
-                {
-                    priceResult = priceResult.Concat(this.GetIdTinByLuong(queryCapBac, item));
-                }
+                priceResult = priceResult.Concat(this.GetIdTinByLuong(queryCapBac, mucluong));
+            }
+
+            else
+            {
+                priceResult = priceResult.Concat(queryCapBac);
             }
 
             var result = priceResult.Distinct();
@@ -202,12 +204,8 @@ namespace VNW.Data.Repositories
 
             switch (sort)
             {
-                case "date":
-                    query = query.OrderByDescending(x => x.NgayDang);
-                    break;
-
-                case "relevance":
-                    query = query.OrderByDescending(x => x.TuLuong);
+                case "salary":
+                    query = query.OrderByDescending(x => x.DenLuong);
                     break;
 
                 default:
@@ -265,7 +263,7 @@ namespace VNW.Data.Repositories
                         on ttdung.Id equals ttd
                         select ttdung;
 
-            IEnumerable<int> result = null;
+            IEnumerable<int> result = Enumerable.Empty<int>();
 
             if (luong == "500")
             {
@@ -297,7 +295,8 @@ namespace VNW.Data.Repositories
                             }
                             else
                             {
-                                result = result.Concat(query.Where(x => x.TuLuong >= 3000).Select(y => y.Id));
+                                if (luong == "3000")
+                                    result = result.Concat(query.Where(x => x.TuLuong >= 3000).Select(y => y.Id));
                             }
                         }
                     }
@@ -305,6 +304,84 @@ namespace VNW.Data.Repositories
             }
 
             return result;
+        }
+
+        public IEnumerable<TinhVm> GetTinh(IEnumerable<int> tinTuyenDung)
+        {
+            var query = (from t in DbContext.Tinhs
+                         join ttdt in DbContext.TinTuyenDungTinhs
+                         on t.Id equals ttdt.TinhId
+                         join ttd in tinTuyenDung
+                         on ttdt.TinTuyenDungId equals ttd
+                         where t.Status
+                         group t by new
+                         {
+                             t.Id,
+                             t.Ten
+                         } into g
+                         select new
+                         {
+                             Id = g.Key.Id,
+                             Ten = g.Key.Ten,
+                         }).AsEnumerable().Select(x => new TinhVm()
+                         {
+                             Id = x.Id,
+                             Ten = x.Ten
+                         });
+            return query;
+        }
+
+        public IEnumerable<NganhNgheVm> GetNganhNghe(IEnumerable<int> tinTuyenDung)
+        {
+            var query = (from nn in DbContext.NganhNghes
+                         join ttdnn in DbContext.TinTuyenDungNganhNghes
+                         on nn.Id equals ttdnn.NganhNgheId
+                         join ttd in tinTuyenDung
+                         on ttdnn.TinTuyenDungId equals ttd
+                         where nn.Status
+                         group nn by new
+                         {
+                             nn.Id,
+                             nn.Ten
+                         } into g
+                         select new
+                         {
+                             Id = g.Key.Id,
+                             Ten = g.Key.Ten,
+                         }).AsEnumerable().Select(x => new NganhNgheVm()
+                         {
+                             Id = x.Id,
+                             Ten = x.Ten
+                         });
+            return query;
+        }
+
+        public IEnumerable<CapBacVm> GetCapBac(IEnumerable<int> tinTuyenDung)
+        {
+            var query = (from cb in DbContext.CapBacs
+                         join ttdung in DbContext.TinTuyenDungs
+                         on cb.Id equals ttdung.CapBacId
+                         join ttd in tinTuyenDung
+                         on ttdung.Id equals ttd
+                         where cb.Status
+                         group cb by new
+                         {
+                             cb.Id,
+                             cb.Ten
+                         }
+                         into g
+                         select new
+                         {
+                             Id = g.Key.Id,
+                             Ten = g.Key.Ten,
+                         }).AsEnumerable().Select(x => new CapBacVm()
+                         {
+                             Id = x.Id,
+                             Ten = x.Ten
+                         }
+
+                         );
+            return query;
         }
     }
 }
