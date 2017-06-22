@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using VNW.Data.Infrastructure;
+using VNW.Data.Models;
 using VNW.Data.Repositories;
 using VNW.Data.ViewModel;
 
@@ -23,6 +24,20 @@ namespace VNW.Service
 
         IEnumerable<TinTuyenDungVm> GetListSearch(string keyword, string industry, string location, string sort,
             string nganhnghe, string diadiem, string kynang, string capbac, string mucluong);
+
+        TinTuyenDung GetById(int id);
+
+        IEnumerable<KyNangVm> GetKyNangByTinId(int id);
+
+        IEnumerable<PhucLoiVm> GetPhucLoiByTinId(int id);
+
+        IEnumerable<NganhNgheVm> GetNganhNgheByTinId(int id);
+
+        IEnumerable<TinhVm> GetTinhByTinId(int id);
+
+        void IncreaseView(int id);
+
+        void Save();
     }
 
     public class TinTuyenDungService : ITinTuyenDungService
@@ -36,6 +51,11 @@ namespace VNW.Service
             this._unitOfWork = unitOfWork;
         }
 
+        public TinTuyenDung GetById(int id)
+        {
+            return _tinTuyenDungRepository.GetSingleByCondition(x => x.Id == id, new string[] { "CongTy", "CapBac" });
+        }
+
         public IEnumerable<CapBacVm> GetCapBac(IEnumerable<int> tinTuyenDung)
         {
             return _tinTuyenDungRepository.GetCapBac(tinTuyenDung);
@@ -44,6 +64,11 @@ namespace VNW.Service
         public IEnumerable<KyNangVm> GetKyNang(IEnumerable<int> tinTuyenDung)
         {
             return _tinTuyenDungRepository.GetKyNang(tinTuyenDung);
+        }
+
+        public IEnumerable<KyNangVm> GetKyNangByTinId(int id)
+        {
+            return _tinTuyenDungRepository.GetKyNangByTinId(id);
         }
 
         public IEnumerable<int> GetListBeginTin(string keyword, string industry, string location)
@@ -67,9 +92,38 @@ namespace VNW.Service
             return _tinTuyenDungRepository.GetNganhNghe(tinTuyenDung);
         }
 
+        public IEnumerable<NganhNgheVm> GetNganhNgheByTinId(int id)
+        {
+            return _tinTuyenDungRepository.GetNganhNgheByTinId(id);
+        }
+
+        public IEnumerable<PhucLoiVm> GetPhucLoiByTinId(int id)
+        {
+            return _tinTuyenDungRepository.GetPhucLoiByTinId(id);
+        }
+
         public IEnumerable<TinhVm> GetTinh(IEnumerable<int> tinTuyenDung)
         {
             return _tinTuyenDungRepository.GetTinh(tinTuyenDung);
+        }
+
+        public IEnumerable<TinhVm> GetTinhByTinId(int id)
+        {
+            return _tinTuyenDungRepository.GetTinhByTinId(id);
+        }
+
+        public void IncreaseView(int id)
+        {
+            var tin = _tinTuyenDungRepository.GetSingleById(id);
+            if (tin.ViewCount.HasValue)
+                tin.ViewCount += 1;
+            else
+                tin.ViewCount = 1;
+        }
+
+        public void Save()
+        {
+            _unitOfWork.Commit();
         }
     }
 }

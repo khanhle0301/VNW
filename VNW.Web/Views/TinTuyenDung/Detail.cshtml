@@ -1,6 +1,12 @@
-﻿@{
+﻿@model VNW.Web.Models.DetailVm
+
+@{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    TimeSpan interval = DateTime.Now.Subtract(Model.TinTuyenDung.UpdatedDate.Value);
+
+    var days = interval.Days;
 }
 <div class="main-wrapper ">
     <section class="main-content container" id="content">
@@ -117,7 +123,6 @@
 
                                         <span class="error-message" style="display: none;" id="errorAppResume">Vui lòng chọn hồ sơ đính kèm</span>
                                         <span class="error-message" style="display: none;" id="errorAppResumeFile">Vui lòng chọn tập tin đính kèm với định dạng .doc, .docx, .pdf, nhỏ hơn 2048KB</span>
-
                                     </div>
                                 </div>
 
@@ -168,7 +173,6 @@
                             <strong>Oops! </strong> Có lỗi đã xảy ra, vui lòng thử lại.
                         </p>
                     </div>
-
                 </div>
             </div>
             <!--/ Alert Messages -->
@@ -181,7 +185,7 @@
                             <!-- Display when has logo-->
                             <span class="center-block text-center box-limit">
                                 <a href="viec-lam-tai-garena-vietnam-e2904492-vn.html">
-                                    <img src="/assets/client/images.vietnamworks.com/pictureofcompany/73/10325017.png" class="logo img-responsive">
+                                    <img src="@Model.TinTuyenDung.CongTy.Logo" class="logo img-responsive">
                                 </a>
                             </span>
                         </div>
@@ -191,16 +195,21 @@
                                     <div class="row">
                                         <div class="job-header-info">
                                             <h1 itemprop="title" class="job-title">
-                                                5 Sr. Fullstack Developers ( Javascript, PHP, Python )
+                                                @Model.TinTuyenDung.ChucDanh
                                             </h1>
                                             <span class="company-name text-lg block">
-                                                <strong>GARENA VIETNAM</strong>
+                                                <strong>@Model.TinTuyenDung.CongTy.Ten</strong>
                                             </span>
-                                            <span class="company-address block">444 Hoang Hoa Tham Street | Thuy Khue Ward | Tay Ho District | HN, Vietnam</span>
+                                            <span class="company-address block">@Model.TinTuyenDung.CongTy.DiaChi</span>
 
                                             <p class="work-location">
                                                 Nơi làm việc:
-                                                <span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><a itemprop="addressLocality" href="viec-lam-tai-ha-noi-v24-vn.html" title="Việc làm tại Hà Nội">Hà Nội</a></span><span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">, <a itemprop="addressLocality" href="viec-lam-tai-ho-chi-minh-v29-vn.html" title="Việc làm tại Hồ Chí Minh">Hồ Chí Minh</a></span>
+                                                @foreach (var item in Model.Tinh)
+                                                {
+                                                    <span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                                                        <a itemprop="addressLocality" href="#" title="@item.Ten">@item.Ten</a> ,
+                                                    </span>
+                                                }
                                             </p>
                                         </div>
                                     </div>
@@ -209,10 +218,13 @@
                                 <div class="col-md-4 hidden-xs hidden-sm">
                                     <div class="push-top-sm"></div>
                                     <div class="action-apply center-block">
-                                        <button type="button" onclick="applyNow()" class="btn btn-primary btn-xlg col-sm-12">
+                                        <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-xlg col-sm-12">
                                             Nộp Đơn
                                         </button>
-                                        <button class="btn btn-sm btn-google btn-block push-top-xs pull-left"><i class="fa fa-fw fa-google"></i> <span> Nộp đơn với Google</span></button>
+                                        <button class="btn btn-sm btn-google btn-block push-top-xs pull-left">
+                                            <i class="fa fa-fw fa-google"></i>
+                                            <span> Nộp đơn với Google</span>
+                                        </button>
                                     </div>
                                 </div>
                                 <!--/-->
@@ -223,7 +235,25 @@
                                 <div class="pull-left">
                                     <div class="salary border pull-left padding-15 box-gray-light-ex rounded text-center bold-500">
                                         Mức lương:
-                                        <span class="link-list"><a href="dang-nhap/index938c.html?lang=1">Đăng nhập để xem mức lương</a></span>
+                                        @if (!Request.IsAuthenticated)
+                                        { <span class="link-list">
+                                            <a href="dang-nhap/index938c.html?lang=1">
+                                                Đăng nhập để xem mức lương
+                                            </a>
+                                        </span>
+                                        }
+                                        else
+                                        {
+                                            if (!Model.TinTuyenDung.HienThiLuong)
+                                            {
+                                                <span class="orange bold-700 text-lg">Thương lượng</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="orange bold-700 text-lg">$@Model.TinTuyenDung.TuLuong - $@Model.TinTuyenDung.DenLuong</span>
+                                            }
+                                        }
+
                                     </div>
                                 </div>
 
@@ -231,20 +261,21 @@
                                 <!--Show in Mobile-->
                                 <div class="visible-xs visible-sm push-top-lg">
                                     <div class="action-apply center-block">
-                                        <button type="button" class="col-sm-12 btn btn-primary btn-xlg" data-toggle="modal" onclick="initApplyForm()">Nộp Đơn</button>
+                                        <button type="button" class="col-sm-12 btn btn-primary btn-xlg" data-toggle="modal" data-target="#myModal">Nộp Đơn</button>
                                     </div>
-                                    <button class="btn btn-sm btn-google btn-block push-top-xs"><i class="fa fa-fw fa-google"></i> <span> Nộp đơn với Google</span></button>
+                                    <button class="btn btn-sm btn-google btn-block push-top-xs">
+                                        <i class="fa fa-fw fa-google">
+                                        </i> <span> Nộp đơn với Google</span>
+                                    </button>
                                 </div>
                                 <!--/-->
                                 <div class="pull-right push-md-4 text-gray-light job-detail-date-info text-center">
-                                    <div class="pull-left small padding-15">662 lượt xem</div>
-                                    <div class="pull-left small padding-15">Đăng tuyển 7 ngày trước</div>
+                                    <div class="pull-left small padding-15">@Model.TinTuyenDung.ViewCount lượt xem</div>
+                                    <div class="pull-left small padding-15">Đăng tuyển @days ngày trước</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
             <!-- /.Job Header -->
@@ -260,55 +291,39 @@
                             <!--Benefits-->
                             <div class="icon-group expected-company-benefit-list push-top-xs">
                                 <div class="border-primary">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="benefit-icon"><i class="fa fa-fw fa-lg fa-dollar"></i></div>
-                                            <div class="benefit-name">13th month salary is guaranteed - Yearly allowance base on individuals’ KPIs</div>
+                                    @foreach (var item in Model.PhucLoi)
+                                    {
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="benefit-name">@item.Ten</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="benefit-icon"><i class="fa fa-fw fa-lg fa-user-md"></i></div>
-                                            <div class="benefit-name">Health insurance package &amp; Private health insurance</div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="benefit-icon"><i class="fa fa-fw fa-lg fa-coffee"></i></div>
-                                            <div class="benefit-name">Allowance: Lunch -  Flexible working hour, Company Trip</div>
-                                        </div>
-                                    </div>
+                                    }
                                 </div>
-
                             </div>
                             <!-- Photo & Videos -->
-                            <div class="clearfix">
-                                <div class="multi-carousel-wrapper fade-in-on-page-loaded in">
-                                    <div class="multi-carousel" data-jcarousel="true">
-                                        <ul style="left: 0px; top: 0px;">
-                                            <li style="width: 204px;">
-                                                <a href="/assets/client/images.vietnamworks.com/company_profile/45444.jpg" rel="multi-carousel" style="height: 105px;">
-                                                    <img class="img-responsive" src="/assets/client/images.vietnamworks.com/company_profile/45444.jpg" alt="" style="margin-top: -15px;">
-                                                </a>
-                                            </li>
-                                            <li style="width: 204px;">
-                                                <a href="/assets/client/images.vietnamworks.com/company_profile/45445.jpg" rel="multi-carousel" style="height: 105px;">
-                                                    <img class="img-responsive" src="/assets/client/images.vietnamworks.com/company_profile/45445.jpg" alt="" style="margin-top: -8px;">
-                                                </a>
-                                            </li>
-                                            <li style="width: 204px;">
-                                                <a href="/assets/client/images.vietnamworks.com/company_profile/45446.jpg" rel="multi-carousel" style="height: 105px;">
-                                                    <img class="img-responsive" src="/assets/client/images.vietnamworks.com/company_profile/45446.jpg" alt="" style="margin-top: 0px;">
-                                                </a>
-                                            </li>
-                                        </ul>
+                            @{
+                                var moreImages = Model.ListImages;
+                                if (moreImages.Count > 0)
+                                {
+                                    <div class="clearfix">
+                                        <div class="multi-carousel-wrapper fade-in-on-page-loaded in">
+                                            <div class="multi-carousel" data-jcarousel="true">
+                                                <ul style="left: 0px; top: 0px;">
+                                                    foreach (var image in moreImages)
+                                                    {
+                                                    <li style="width: 204px;">
+                                                        <a href="/assets/client/images.vietnamworks.com/company_profile/45444.jpg" rel="multi-carousel" style="height: 105px;">
+                                                            <img class="img-responsive" src="/assets/client/images.vietnamworks.com/company_profile/45444.jpg" alt="" style="margin-top: -15px;">
+                                                        </a>
+                                                    </li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <a href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true"><i class="fa fa-angle-left fa-3x"></i></a>
-                                    <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"><i class="fa fa-angle-right fa-3x"></i></a>
-                                    <p class="jcarousel-pagination" data-jcarouselpagination="true"><a href="#1" class="active">1</a><a href="#2">2</a><a href="#3">3</a></p>
-                                </div>
-                                <!-- /.photos -->
-                            </div>
+                                }
+                            }
                         </div>
                     </div>
                     <!-- Job Detail-->
@@ -316,38 +331,24 @@
                         <div class="box box-lg">
                             <h2>Bạn Nên Có Kỹ Năng</h2>
                             <div class="push-top-sm job-tag-add-skill1">
-                                <span class="tag-xs  addable " title="Javascript">
-                                    <span class="tag-name">Javascript</span>
-                                    <label>
-                                        <i onclick="addSkillForJobseeker(this,'Javascript')" class="fa fa-plus clickable btn-add btn-add-skill-tag"></i>
-                                        <input type="checkbox" value="99" hidden="hidden">
-                                    </label>
-                                </span> <br class="visible-xs visible-sm">
-                                <span class="tag-xs  addable " title="Python">
-                                    <span class="tag-name">Python</span>
-                                    <label>
-                                        <i onclick="addSkillForJobseeker(this,'Python')" class="fa fa-plus clickable btn-add btn-add-skill-tag"></i>
-                                        <input type="checkbox" value="806" hidden="hidden">
-                                    </label>
-                                </span> <br class="visible-xs visible-sm">
-                                <span class="tag-xs  addable " title="PHP">
-                                    <span class="tag-name">PHP</span>
-                                    <label>
-                                        <i onclick="addSkillForJobseeker(this,'PHP')" class="fa fa-plus clickable btn-add btn-add-skill-tag"></i>
-                                        <input type="checkbox" value="205" hidden="hidden">
-                                    </label>
-                                </span> <br class="visible-xs visible-sm">
+                                @foreach (var item in Model.KyNang)
+                                {
+                                    <span class="tag-xs  addable " title="@item.Ten">
+                                        <span class="tag-name">@item.Ten</span>
+                                        <label>
+                                            <i class="fa fa-plus clickable btn-add btn-add-skill-tag"></i>
+                                            <input type="checkbox" value="205" hidden="hidden">
+                                        </label>
+                                    </span>
+                                    <br class="visible-xs visible-sm">
+                                }
                             </div>
                         </div>
                         <div class="box box-lg">
                             <!-- Job Description-->
                             <h2>Bạn Sẽ Làm Gì</h2>
                             <div id="job-description" class="push-top-sm" itemprop="description">
-                                We are looking talents for SENIOR FULL STACK DEVELOPER for development team in Hanoi City (Floor 1, Machinco, 444 Hoang Hoa Tham, Ward Thuy Khe, Dist Tay Ho, HaNoi)<br>
-                                <br>
-                                OBJECTIVES:<br>
-                                - Develop the systems to meet high performance and extendibility<br>
-                                - Create the API to interact with other systems as well as the sub libraries
+                                @Html.Raw(Model.TinTuyenDung.MoTa)
                             </div>
                         </div>
                         <div class="box box-lg">
@@ -356,22 +357,7 @@
                             <div id="job-requirement" itemprop="experienceRequirements ">
                                 <div class="job-requirement-must-have push-top-sm">
                                     <div class="">
-                                        WE REQUIREMENTS:<br>
-                                        - Bachelor degree in Computer Science of Engineering or and equivalent<br>
-                                        - At least 2 years of server-side programming<br>
-                                        - Full-stack development: server-side, front-end, API development and database structure<br>
-                                        - Strong experience of maintaining and developing full-stack web technologies, services<br>
-                                        - Good knowledge or experience of networking: TCP/IP, UDP/IP<br>
-                                        - Ability to work independently/ team-work and under high pressures<br>
-                                        - Advantage: Proficiency in Python/ PHP/ Java<br>
-                                        - Proficiency in English is must<br>
-                                        <br>
-                                        WE OFFER:<br>
-                                        - A very attractive salary package.<br>
-                                        - Open and dynamic working environment<br>
-                                        - Attractive income with year bonus.<br>
-                                        - Extra healthy activities and healthcare program.<br>
-                                        - Chance to work on-site in Singapore
+                                        @Html.Raw(Model.TinTuyenDung.YeuCau)
                                     </div>
                                 </div>
                             </div>
@@ -385,28 +371,20 @@
                             </h2>
                             <div class="company-info">
                                 <span itemprop="name" class="link-list company-name text-lg push-top-xs block">
-                                    <strong><a href="viec-lam-tai-garena-vietnam-e2904492-vn.html">GARENA VIETNAM</a></strong>
+                                    <strong><a href="viec-lam-tai-garena-vietnam-e2904492-vn.html">@Model.TinTuyenDung.CongTy.Ten</a></strong>
                                 </span>
-                                <span class="company-address block">444 Hoang Hoa Tham Street | Thuy Khue Ward | Tay Ho District | HN, Vietnam</span>
+                                <span class="company-address block">@Model.TinTuyenDung.CongTy.DiaChi</span>
                                 <p>
-                                    Tên người liên hệ: <strong>HR Department</strong><br>
-                                    Qui mô công ty: <strong>1.000-4.999</strong>
+                                    Tên người liên hệ: <strong>@Model.TinTuyenDung.NguoiLienHe</strong><br>
+                                    Qui mô công ty: <strong>@Model.TinTuyenDung.CongTy.QuyMo</strong>
                                 </p>
                                 <p>
                                     <span id="companyprofile">
-                                        GARENA VIETNAM<br>
-                                        "Connect The Dots To Connect The World"<br>
-                                        <br>
-                                        "Aim to change people's lives by providing great experiments with Internet based services". <br>
-                                        This mission leads us to be the pioneer in e-sports and one of few technology companies providing e-payment &amp; e-commerce platforms. Some key factors about us:<br>
-                                        <br>
-                                        - One of fastest-growing technology companies in Vietnam.<br>
-                                        - 1,000+ employees over 6 years of growing.<br>
-                                        - 50 points of Customer Service nationwide besides.
+                                        @Html.Raw(Model.TinTuyenDung.CongTy.ThongTin)
                                     </span>
                                 </p>
                                 <p class="push-top">
-                                    <a href="viec-lam-tai-garena-vietnam-e2904492-vn.html"><i class="fa fa-arrow-right"></i> Việc làm khác từ Công ty này</a>
+                                    <a href="#"><i class="fa fa-arrow-right"></i> Việc làm khác từ Công ty này</a>
                                 </p>
                             </div>
                         </div>
@@ -479,12 +457,18 @@
                             <div class="push-top-xs"></div>
                             <div class="list-group">
                                 <h5>Cấp Bậc</h5>
-                                <a href="nhan-vien-l5-vn.html" title="Nhân viên jobs">Nhân viên</a>
+                                <a href="nhan-vien-l5-vn.html" title="@Model.TinTuyenDung.CapBac.Ten">@Model.TinTuyenDung.CapBac.Ten</a>
                             </div>
 
                             <div class="list-group push-top-xs">
                                 <h5>Ngành Nghề</h5>
-                                <a href="it-phan-cung-mang-jobs-i55-vn.html" title="Jobs in IT-Phần cứng/Mạng">IT-Phần cứng/Mạng</a><br><a href="internet-online-media-jobs-i57-vn.html" title="Jobs in Internet/Online Media">Internet/Online Media</a><br><a href="it-phan-mem-jobs-i35-vn.html" title="Jobs in IT - Phần mềm">IT - Phần mềm</a><br>
+                                @foreach (var item in Model.NganhNghe)
+                                {
+                                    <a href="it-phan-cung-mang-jobs-i55-vn.html" title="@item.Ten">
+                                        @item.Ten
+                                    </a>
+                                    <br>
+                                }
                             </div>
 
                             <div class="list-group push-top-xs">
@@ -569,7 +553,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <!-- Jobs from Similar Company-->
                 <div class="col-xs-12 col-md-4 col-lg-4 pull-right">

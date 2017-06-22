@@ -88,6 +88,26 @@
     <Compile Include="Migrations\201706211739295_EditChucDanh.Designer.cs">
       <DependentUpon>201706211739295_EditChucDanh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706221413472_AddAlias1.cs" />
+    <Compile Include="Migrations\201706221413472_AddAlias1.Designer.cs">
+      <DependentUpon>201706221413472_AddAlias1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706221611233_AddIcon.cs" />
+    <Compile Include="Migrations\201706221611233_AddIcon.Designer.cs">
+      <DependentUpon>201706221611233_AddIcon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706221620185_DeletIcon.cs" />
+    <Compile Include="Migrations\201706221620185_DeletIcon.Designer.cs">
+      <DependentUpon>201706221620185_DeletIcon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706221737270_AddView.cs" />
+    <Compile Include="Migrations\201706221737270_AddView.Designer.cs">
+      <DependentUpon>201706221737270_AddView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706221742242_EditView.cs" />
+    <Compile Include="Migrations\201706221742242_EditView.Designer.cs">
+      <DependentUpon>201706221742242_EditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\Auditable.cs" />
     <Compile Include="Models\Abstract\IAuditable.cs" />
@@ -123,6 +143,7 @@
     <Compile Include="ViewModel\CapBacVm.cs" />
     <Compile Include="ViewModel\KyNangVm.cs" />
     <Compile Include="ViewModel\NganhNgheVm.cs" />
+    <Compile Include="ViewModel\PhucLoiVm.cs" />
     <Compile Include="ViewModel\TinhVm.cs" />
     <Compile Include="ViewModel\TinTuyenDungVm.cs" />
     <Compile Include="VNWDbContext.cs" />
@@ -154,6 +175,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706211739295_EditChucDanh.resx">
       <DependentUpon>201706211739295_EditChucDanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221413472_AddAlias1.resx">
+      <DependentUpon>201706221413472_AddAlias1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221611233_AddIcon.resx">
+      <DependentUpon>201706221611233_AddIcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221620185_DeletIcon.resx">
+      <DependentUpon>201706221620185_DeletIcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221737270_AddView.resx">
+      <DependentUpon>201706221737270_AddView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221742242_EditView.resx">
+      <DependentUpon>201706221742242_EditView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

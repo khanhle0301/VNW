@@ -15,6 +15,9 @@ namespace VNW.Data.Models
         [MaxLength(256)]
         public string ChucDanh { set; get; }
 
+        [MaxLength(256)]
+        public string Alias { set; get; }
+
         public int CapBacId { set; get; }
 
         public int TuLuong { set; get; }
@@ -34,6 +37,8 @@ namespace VNW.Data.Models
         public string Email { set; get; }
 
         public int CongTyId { set; get; }
+
+        public int? ViewCount { set; get; }
 
         [ForeignKey("CongTyId")]
         public virtual CongTy CongTy { set; get; }

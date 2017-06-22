@@ -1,11 +1,11 @@
-﻿//Mustache.Formatters = {
-//    "date": function (dt) {
-//        var lpad = Mustache.Formatters.lpad,
-//            day = lpad(dt.getDate(), 2, "0"),
-//            month = lpad(dt.getMonth() + 1, 2, "0");
-//        return day + "/" + month + "/" + dt.getFullYear();
-//    }
-//};
+﻿Mustache.Formatters = {
+    "date": function (dt) {
+        var lpad = Mustache.Formatters.lpad,
+            day = lpad(dt.getDate(), 2, "0"),
+            month = lpad(dt.getMonth() + 1, 2, "0");
+        return day + "/" + month + "/" + dt.getFullYear();
+    }
+};
 
 var timConfig = {
     pageSize: 2,
@@ -83,6 +83,8 @@ var timSearchController = {
 
         var mucluong = $('input:radio[name=jobSalary]:checked').val();
 
+        var isAuthenticated = $('#isAuthenticated').val();
+
         $.ajax({
             url: '/TinTuyenDung/LoadData',
             type: 'GET',
@@ -108,12 +110,16 @@ var timSearchController = {
                     $.each(data, function (i, item) {
                         html += Mustache.render(template, {
                             Id: item.Id,
-                            Url: '#',
+                            Url: '/' + item.Alias + '-' + item.Id + '.html',
                             TenCongTy: item.TenCongTy,
                             Logo: item.Logo,
                             ChucDanh: item.ChucDanh,
                             DiaChi: '#',
-                            NgayDang: item.NgayDang
+                            NgayDang: item.NgayDang,
+                            isAuthenticated: (isAuthenticated != 1) ? true : false,
+                            thuongluong: (item.HienThiLuong == true) ? true : false,
+                            TuLuong: item.TuLuong,
+                            DenLuong: item.DenLuong
                         });
 
                     });

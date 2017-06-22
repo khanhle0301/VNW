@@ -8,6 +8,8 @@ namespace VNW.Data.ViewModel
 
         public string ChucDanh { set; get; }
 
+        public string Alias { set; get; }
+
         public int TuLuong { set; get; }
 
         public int DenLuong { set; get; }

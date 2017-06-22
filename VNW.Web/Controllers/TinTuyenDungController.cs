@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using VNW.Data.Models;
 using VNW.Service;
 using VNW.Web.Models;
@@ -53,9 +54,38 @@ namespace VNW.Web.Controllers
             return View(tinTuyenDungHomeVm);
         }
 
-        public ActionResult Detail()
+        public ActionResult Detail(int id)
         {
-            return View();
+            var model = _tinTuyenDungService.GetById(id);
+
+            var kyNang = _tinTuyenDungService.GetKyNangByTinId(id);
+
+            var nganhNghe = _tinTuyenDungService.GetNganhNgheByTinId(id);
+
+            var tinh = _tinTuyenDungService.GetTinhByTinId(id);
+
+            var phucLoi = _tinTuyenDungService.GetPhucLoiByTinId(model.CongTyId);
+
+            var listImages = new JavaScriptSerializer().Deserialize<List<string>>(model.CongTy.HinhAnh);
+
+            DetailVm detailVm = new DetailVm();
+
+            detailVm.TinTuyenDung = model;
+
+            detailVm.KyNang = kyNang;
+
+            detailVm.NganhNghe = nganhNghe;
+
+            detailVm.Tinh = tinh;
+
+            detailVm.PhucLoi = phucLoi;
+
+            detailVm.ListImages = listImages;
+
+            _tinTuyenDungService.IncreaseView(id);
+            _tinTuyenDungService.Save();
+
+            return View(detailVm);
         }
 
         [HttpGet]

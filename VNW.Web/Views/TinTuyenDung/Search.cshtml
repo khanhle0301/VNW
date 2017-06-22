@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var isAuthenticated = Request.IsAuthenticated ? "1" : "0";
 }
 
 @section footerJS{
@@ -20,6 +22,7 @@
 }
 
 <div id="wrapper" class="main-wrapper">
+    <input id="isAuthenticated" hidden value="@isAuthenticated" />
     <div id="search-widget-wrapper">
         <div id="search-widget" class="collapse m-t-md in">
             <div class="search-form container">
@@ -433,11 +436,24 @@
                                 <span class="job-search__location">{{DiaChi}}</span>
                             </div>
                             <div class="extra-info salary text-clip">
+                                {{#isAuthenticated}}
                                 <a href="/jobseekers/checkAuthenticate.php?lang=1">Đăng nhập để xem mức lương</a>
+                                {{/isAuthenticated}}
+                                {{^isAuthenticated}}
+                                {{#thuongluong}}
+                                <span class="text-primary">Thương lượng</span>
+                                {{/thuongluong}}
+                                {{^thuongluong}}
+                                <span class="text-primary">${{TuLuong}} - ${{DenLuong}}</span>
+                                {{/thuongluong}}
+                                {{/isAuthenticated}}
+
                                 <span class="separator">
                                     |
                                 </span>
-                                <span class="job-search__date-posted gray-light">{{NgayDang | date}}</span>
+                                <span class="job-search__date-posted gray-light">
+                                    {{NgayDang}}
+                                </span>
                             </div>
                         </div>
                     </div>

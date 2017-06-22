@@ -41,6 +41,13 @@ namespace VNW.Web
             );
 
             routes.MapRoute(
+            name: "Detail",
+            url: "{alias}-{id}.html",
+            defaults: new { controller = "TinTuyenDung", action = "Detail", id = UrlParameter.Optional },
+              namespaces: new string[] { "VNW.Web.Controllers" }
+        );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
