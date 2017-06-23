@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using VNW.Data.Infrastructure;
 using VNW.Data.Models;
@@ -203,7 +204,7 @@ namespace VNW.Data.Repositories
                              HienThiLuong = x.HienThiLuong,
                              TenCongTy = x.TenCongTy,
                              Logo = x.Logo,
-                             NgayDang = x.NgayDang,
+                             NgayDang = x.NgayDang.Value.ToString("dd/MM/yyyy",new CultureInfo("en-US")),
                              Alias = x.Alias
                          });
 

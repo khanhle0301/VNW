@@ -53,6 +53,7 @@ namespace VNW.Web.Controllers
         }
 
         // GET: Account
+        [ValidateInput(false)]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;

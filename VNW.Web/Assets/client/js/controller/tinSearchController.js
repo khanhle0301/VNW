@@ -46,6 +46,16 @@ var timSearchController = {
 
     },
 
+    getDate: function () {
+        var date = new Date(),
+          year = date.getFullYear(),
+          month = (date.getMonth() + 1).toString(),
+          formatedMonth = (month.length === 1) ? ("0" + month) : month,
+          day = date.getDate().toString(),
+          formatedDay = (day.length === 1) ? ("0" + day) : day;
+        return formatedDay + "/" + formatedMonth + "/" + year;
+    },
+
     loadData: function (changePageSize) {
 
         var keyword = $("#txtKeyword").val();
@@ -85,6 +95,8 @@ var timSearchController = {
 
         var isAuthenticated = $('#isAuthenticated').val();
 
+        var dateNow = timSearchController.getDate();
+
         $.ajax({
             url: '/TinTuyenDung/LoadData',
             type: 'GET',
@@ -119,7 +131,8 @@ var timSearchController = {
                             isAuthenticated: (isAuthenticated != 1) ? true : false,
                             thuongluong: (item.HienThiLuong == true) ? true : false,
                             TuLuong: item.TuLuong,
-                            DenLuong: item.DenLuong
+                            DenLuong: item.DenLuong,
+                            homnay: (item.NgayDang == dateNow) ? true : false,
                         });
 
                     });

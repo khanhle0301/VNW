@@ -20,6 +20,6 @@ namespace VNW.Data.ViewModel
 
         public string Logo { set; get; }
 
-        public DateTime? NgayDang { set; get; }
+        public string NgayDang { set; get; }
     }
 }

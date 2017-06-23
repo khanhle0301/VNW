@@ -452,7 +452,13 @@
                                     |
                                 </span>
                                 <span class="job-search__date-posted gray-light">
+                                    {{#homnay}}
+                                    Hôm nay
+                                    {{/homnay}}
+                                    {{^homnay}}
                                     {{NgayDang}}
+                                    {{/homnay}}
+
                                 </span>
                             </div>
                         </div>

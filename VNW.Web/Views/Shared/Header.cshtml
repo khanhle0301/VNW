@@ -1,12 +1,12 @@
 ﻿@{
-    var urlrequest = HttpContext.Current.Request.Url.PathAndQuery;
+    var urlrequest = HttpContext.Current.Request.RawUrl;
 }
 
 <nav class="navbar horizontal-navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand hidden-xs" title="Vietnamworks.com – Mạng việc làm, tuyển dụng hàng đầu Việt Nam" href="index.html">
+            <a class="navbar-brand hidden-xs" title="Vietnamworks.com – Mạng việc làm, tuyển dụng hàng đầu Việt Nam" href="/">
                 <img class="" src="/assets/client/images.vietnamworks.com/img/jobseekers/logo.png" alt="Vietnamworks.com – Mạng việc làm, tuyển dụng hàng đầu Việt Nam" height="40px">
             </a>
         </div>
@@ -117,7 +117,7 @@
         <div class="visible-xs mobile-nav">
             <ul>
                 <li class="pull-left mobile-logo">
-                    <a href="index.html">
+                    <a href="/">
                         <img class="visible-xs-inline"
                              src="data:image/png;base64,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"
                              alt="">
