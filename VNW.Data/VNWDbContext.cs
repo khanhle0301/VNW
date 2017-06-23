@@ -12,6 +12,7 @@ namespace VNW.Data
         }
 
         public DbSet<CapBac> CapBacs { set; get; }
+        public DbSet<Error> Errors { set; get; }
         public DbSet<CongTy> CongTys { set; get; }
         public DbSet<CongTyNganhNghe> CongTyNganhNghes { set; get; }
         public DbSet<CongTyPhucLoi> CongTyPhucLois { set; get; }

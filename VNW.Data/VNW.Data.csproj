@@ -108,6 +108,10 @@
     <Compile Include="Migrations\201706221742242_EditView.Designer.cs">
       <DependentUpon>201706221742242_EditView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706230821538_AddError.cs" />
+    <Compile Include="Migrations\201706230821538_AddError.Designer.cs">
+      <DependentUpon>201706230821538_AddError.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\Auditable.cs" />
     <Compile Include="Models\Abstract\IAuditable.cs" />
@@ -119,6 +123,7 @@
     <Compile Include="Models\CongTy.cs" />
     <Compile Include="Models\CongTyNganhNghe.cs" />
     <Compile Include="Models\CongTyPhucLoi.cs" />
+    <Compile Include="Models\Error.cs" />
     <Compile Include="Models\KyNang.cs" />
     <Compile Include="Models\NganhNghe.cs" />
     <Compile Include="Models\PhucLoi.cs" />
@@ -132,6 +137,7 @@
     <Compile Include="Repositories\CongTyNganhNgheRepository.cs" />
     <Compile Include="Repositories\CongTyPhucLoiRepository.cs" />
     <Compile Include="Repositories\CongTyRepository.cs" />
+    <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="Repositories\KyNangRepository.cs" />
     <Compile Include="Repositories\NganhNgheRepository.cs" />
     <Compile Include="Repositories\PhucLoiRepository.cs" />
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706221742242_EditView.resx">
       <DependentUpon>201706221742242_EditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706230821538_AddError.resx">
+      <DependentUpon>201706230821538_AddError.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
